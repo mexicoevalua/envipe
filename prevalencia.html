@@ -1,0 +1,1171 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/topojson.v1.min.js' type='text/javascript'></script>
+    <script src='http://datamaps.github.io/scripts/datamaps.all.min.js' type='text/javascript'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js' type='text/javascript'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }
+    .container { margin-top: 20px; }
+    .datamaps-legend dt{font-weight: normal; }  
+    </style>
+    
+  </head>
+  <body ng-app ng-controller='rChartsCtrl'>
+    
+     
+                   
+                   <div class='container'>
+                   <div class="btn-group" >
+                   <button ng-repeat="value in years" ng-click='updateYear(value)'
+                   class="btn btn-default" type="button" 
+                   ng-model="value" btn-radio="value">
+                   {{value}}
+    
+                   </button>
+                   </div>
+                   <div id='chart_1' class='rChart datamaps'></div>  
+                   </div>
+                   <script>
+                   function rChartsCtrl($scope){
+                   $scope.years = [2010, 2011, 2012]
+                   $scope.year = $scope.years[0]
+                   $scope.updateYear = function(x){
+                   $scope.year = x
+                   }
+                   $scope.$watch('year', function(newYear){
+                   mapchart_1.updateChoropleth(chartParams.newData[newYear]);
+                   })
+                   }
+                   </script>      
+    <script id='popup-template' type='text/x-handlebars-template'>
+    
+</script>
+<script>
+  var chartParams = {
+ "dom": "chart_1",
+"width":    800,
+"height":    400,
+"geographyConfig": {
+ "dataUrl": "shapefiles/mx_states.json",
+"popupTemplate":  function(geography, data) { //this function should just return a string
+    return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
+    }   
+},
+"scope": "states",
+"labels": true,
+"bodyattrs": "ng-app ng-controller='rChartsCtrl'",
+"setProjection":  function( element, options ) {
+  
+  var projection, path;
+  
+  projection = d3.geo.mercator()
+  .center([-90, 24])
+  .scale(element.offsetWidth)
+  .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+  
+  path = d3.geo.path()
+  .projection( projection );
+  
+  return {path: path, projection: projection};
+  } ,
+"fills": {
+ "[12620,19451]": "#FFFFB2",
+"(19451,21576]": "#FECC5C",
+"(21576,24753]": "#FD8D3C",
+"(24753,28861]": "#F03B20",
+"(28861,41048]": "#BD0026",
+"defaultFill": "#BD0026" 
+},
+"data": {
+ "AGU": {
+ "state_code": 1,
+"name": "AGU",
+"state_name": "Aguascalientes",
+"year":   2010,
+"prevalencia":  36387,
+"fillKey": "(28861,41048]" 
+},
+"BCN": {
+ "state_code": 2,
+"name": "BCN",
+"state_name": "Baja California",
+"year":   2010,
+"prevalencia":  30753,
+"fillKey": "(28861,41048]" 
+},
+"BCS": {
+ "state_code": 3,
+"name": "BCS",
+"state_name": "Baja California Sur",
+"year":   2010,
+"prevalencia":  23328,
+"fillKey": "(21576,24753]" 
+},
+"CAM": {
+ "state_code": 4,
+"name": "CAM",
+"state_name": "Campeche",
+"year":   2010,
+"prevalencia":  17321,
+"fillKey": "[12620,19451]" 
+},
+"COA": {
+ "state_code": 5,
+"name": "COA",
+"state_name": "Coahuila de Zaragoza",
+"year":   2010,
+"prevalencia":  25250,
+"fillKey": "(24753,28861]" 
+},
+"COL": {
+ "state_code": 6,
+"name": "COL",
+"state_name": "Colima",
+"year":   2010,
+"prevalencia":  17138,
+"fillKey": "[12620,19451]" 
+},
+"CHP": {
+ "state_code": 7,
+"name": "CHP",
+"state_name": "Chiapas",
+"year":   2010,
+"prevalencia":  12856,
+"fillKey": "[12620,19451]" 
+},
+"CHH": {
+ "state_code": 8,
+"name": "CHH",
+"state_name": "Chihuahua",
+"year":   2010,
+"prevalencia":  34826,
+"fillKey": "(28861,41048]" 
+},
+"DIF": {
+ "state_code": 9,
+"name": "DIF",
+"state_name": "Distrito Federal",
+"year":   2010,
+"prevalencia":  32495,
+"fillKey": "(28861,41048]" 
+},
+"DUR": {
+ "state_code": 10,
+"name": "DUR",
+"state_name": "Durango",
+"year":   2010,
+"prevalencia":  20598,
+"fillKey": "(19451,21576]" 
+},
+"GUA": {
+ "state_code": 11,
+"name": "GUA",
+"state_name": "Guanajuato",
+"year":   2010,
+"prevalencia":  20890,
+"fillKey": "(19451,21576]" 
+},
+"GRO": {
+ "state_code": 12,
+"name": "GRO",
+"state_name": "Guerrero",
+"year":   2010,
+"prevalencia":  20172,
+"fillKey": "(19451,21576]" 
+},
+"HID": {
+ "state_code": 13,
+"name": "HID",
+"state_name": "Hidalgo",
+"year":   2010,
+"prevalencia":  20699,
+"fillKey": "(19451,21576]" 
+},
+"JAL": {
+ "state_code": 14,
+"name": "JAL",
+"state_name": "Jalisco",
+"year":   2010,
+"prevalencia":  24452,
+"fillKey": "(21576,24753]" 
+},
+"MEX": {
+ "state_code": 15,
+"name": "MEX",
+"state_name": "Estado de México",
+"year":   2010,
+"prevalencia":  27908,
+"fillKey": "(24753,28861]" 
+},
+"MIC": {
+ "state_code": 16,
+"name": "MIC",
+"state_name": "Michoacán de Ocampo",
+"year":   2010,
+"prevalencia":  14931,
+"fillKey": "[12620,19451]" 
+},
+"MOR": {
+ "state_code": 17,
+"name": "MOR",
+"state_name": "Morelos",
+"year":   2010,
+"prevalencia":  21925,
+"fillKey": "(21576,24753]" 
+},
+"NAY": {
+ "state_code": 18,
+"name": "NAY",
+"state_name": "Nayarit",
+"year":   2010,
+"prevalencia":  23224,
+"fillKey": "(21576,24753]" 
+},
+"NLE": {
+ "state_code": 19,
+"name": "NLE",
+"state_name": "Nuevo León",
+"year":   2010,
+"prevalencia":  27310,
+"fillKey": "(24753,28861]" 
+},
+"OAX": {
+ "state_code": 20,
+"name": "OAX",
+"state_name": "Oaxaca",
+"year":   2010,
+"prevalencia":  16262,
+"fillKey": "[12620,19451]" 
+},
+"PUE": {
+ "state_code": 21,
+"name": "PUE",
+"state_name": "Puebla",
+"year":   2010,
+"prevalencia":  21707,
+"fillKey": "(21576,24753]" 
+},
+"QUE": {
+ "state_code": 22,
+"name": "QUE",
+"state_name": "Querétaro",
+"year":   2010,
+"prevalencia":  19675,
+"fillKey": "(19451,21576]" 
+},
+"QROO": {
+ "state_code": 23,
+"name": "QROO",
+"state_name": "Quintana Roo",
+"year":   2010,
+"prevalencia":  28740,
+"fillKey": "(24753,28861]" 
+},
+"SLP": {
+ "state_code": 24,
+"name": "SLP",
+"state_name": "San Luis Potosí",
+"year":   2010,
+"prevalencia":  22636,
+"fillKey": "(21576,24753]" 
+},
+"SIN": {
+ "state_code": 25,
+"name": "SIN",
+"state_name": "Sinaloa",
+"year":   2010,
+"prevalencia":  26373,
+"fillKey": "(24753,28861]" 
+},
+"SON": {
+ "state_code": 26,
+"name": "SON",
+"state_name": "Sonora",
+"year":   2010,
+"prevalencia":  29285,
+"fillKey": "(28861,41048]" 
+},
+"TAB": {
+ "state_code": 27,
+"name": "TAB",
+"state_name": "Tabasco",
+"year":   2010,
+"prevalencia":  25074,
+"fillKey": "(24753,28861]" 
+},
+"TAM": {
+ "state_code": 28,
+"name": "TAM",
+"state_name": "Tamaulipas",
+"year":   2010,
+"prevalencia":  22647,
+"fillKey": "(21576,24753]" 
+},
+"TLA": {
+ "state_code": 29,
+"name": "TLA",
+"state_name": "Tlaxcala",
+"year":   2010,
+"prevalencia":  20721,
+"fillKey": "(19451,21576]" 
+},
+"VER": {
+ "state_code": 30,
+"name": "VER",
+"state_name": "Veracruz de Ignacio de la Llave",
+"year":   2010,
+"prevalencia":  16437,
+"fillKey": "[12620,19451]" 
+},
+"YUC": {
+ "state_code": 31,
+"name": "YUC",
+"state_name": "Yucatán",
+"year":   2010,
+"prevalencia":  17826,
+"fillKey": "[12620,19451]" 
+},
+"ZAC": {
+ "state_code": 32,
+"name": "ZAC",
+"state_name": "Zacatecas",
+"year":   2010,
+"prevalencia":  22747,
+"fillKey": "(21576,24753]" 
+} 
+},
+"legend": true,
+"id": "chart_1",
+"newData": {
+ "2010": {
+ "AGU": {
+ "state_code": 1,
+"name": "AGU",
+"state_name": "Aguascalientes",
+"year":   2010,
+"prevalencia":  36387,
+"fillKey": "(28861,41048]" 
+},
+"BCN": {
+ "state_code": 2,
+"name": "BCN",
+"state_name": "Baja California",
+"year":   2010,
+"prevalencia":  30753,
+"fillKey": "(28861,41048]" 
+},
+"BCS": {
+ "state_code": 3,
+"name": "BCS",
+"state_name": "Baja California Sur",
+"year":   2010,
+"prevalencia":  23328,
+"fillKey": "(21576,24753]" 
+},
+"CAM": {
+ "state_code": 4,
+"name": "CAM",
+"state_name": "Campeche",
+"year":   2010,
+"prevalencia":  17321,
+"fillKey": "[12620,19451]" 
+},
+"COA": {
+ "state_code": 5,
+"name": "COA",
+"state_name": "Coahuila de Zaragoza",
+"year":   2010,
+"prevalencia":  25250,
+"fillKey": "(24753,28861]" 
+},
+"COL": {
+ "state_code": 6,
+"name": "COL",
+"state_name": "Colima",
+"year":   2010,
+"prevalencia":  17138,
+"fillKey": "[12620,19451]" 
+},
+"CHP": {
+ "state_code": 7,
+"name": "CHP",
+"state_name": "Chiapas",
+"year":   2010,
+"prevalencia":  12856,
+"fillKey": "[12620,19451]" 
+},
+"CHH": {
+ "state_code": 8,
+"name": "CHH",
+"state_name": "Chihuahua",
+"year":   2010,
+"prevalencia":  34826,
+"fillKey": "(28861,41048]" 
+},
+"DIF": {
+ "state_code": 9,
+"name": "DIF",
+"state_name": "Distrito Federal",
+"year":   2010,
+"prevalencia":  32495,
+"fillKey": "(28861,41048]" 
+},
+"DUR": {
+ "state_code": 10,
+"name": "DUR",
+"state_name": "Durango",
+"year":   2010,
+"prevalencia":  20598,
+"fillKey": "(19451,21576]" 
+},
+"GUA": {
+ "state_code": 11,
+"name": "GUA",
+"state_name": "Guanajuato",
+"year":   2010,
+"prevalencia":  20890,
+"fillKey": "(19451,21576]" 
+},
+"GRO": {
+ "state_code": 12,
+"name": "GRO",
+"state_name": "Guerrero",
+"year":   2010,
+"prevalencia":  20172,
+"fillKey": "(19451,21576]" 
+},
+"HID": {
+ "state_code": 13,
+"name": "HID",
+"state_name": "Hidalgo",
+"year":   2010,
+"prevalencia":  20699,
+"fillKey": "(19451,21576]" 
+},
+"JAL": {
+ "state_code": 14,
+"name": "JAL",
+"state_name": "Jalisco",
+"year":   2010,
+"prevalencia":  24452,
+"fillKey": "(21576,24753]" 
+},
+"MEX": {
+ "state_code": 15,
+"name": "MEX",
+"state_name": "Estado de México",
+"year":   2010,
+"prevalencia":  27908,
+"fillKey": "(24753,28861]" 
+},
+"MIC": {
+ "state_code": 16,
+"name": "MIC",
+"state_name": "Michoacán de Ocampo",
+"year":   2010,
+"prevalencia":  14931,
+"fillKey": "[12620,19451]" 
+},
+"MOR": {
+ "state_code": 17,
+"name": "MOR",
+"state_name": "Morelos",
+"year":   2010,
+"prevalencia":  21925,
+"fillKey": "(21576,24753]" 
+},
+"NAY": {
+ "state_code": 18,
+"name": "NAY",
+"state_name": "Nayarit",
+"year":   2010,
+"prevalencia":  23224,
+"fillKey": "(21576,24753]" 
+},
+"NLE": {
+ "state_code": 19,
+"name": "NLE",
+"state_name": "Nuevo León",
+"year":   2010,
+"prevalencia":  27310,
+"fillKey": "(24753,28861]" 
+},
+"OAX": {
+ "state_code": 20,
+"name": "OAX",
+"state_name": "Oaxaca",
+"year":   2010,
+"prevalencia":  16262,
+"fillKey": "[12620,19451]" 
+},
+"PUE": {
+ "state_code": 21,
+"name": "PUE",
+"state_name": "Puebla",
+"year":   2010,
+"prevalencia":  21707,
+"fillKey": "(21576,24753]" 
+},
+"QUE": {
+ "state_code": 22,
+"name": "QUE",
+"state_name": "Querétaro",
+"year":   2010,
+"prevalencia":  19675,
+"fillKey": "(19451,21576]" 
+},
+"QROO": {
+ "state_code": 23,
+"name": "QROO",
+"state_name": "Quintana Roo",
+"year":   2010,
+"prevalencia":  28740,
+"fillKey": "(24753,28861]" 
+},
+"SLP": {
+ "state_code": 24,
+"name": "SLP",
+"state_name": "San Luis Potosí",
+"year":   2010,
+"prevalencia":  22636,
+"fillKey": "(21576,24753]" 
+},
+"SIN": {
+ "state_code": 25,
+"name": "SIN",
+"state_name": "Sinaloa",
+"year":   2010,
+"prevalencia":  26373,
+"fillKey": "(24753,28861]" 
+},
+"SON": {
+ "state_code": 26,
+"name": "SON",
+"state_name": "Sonora",
+"year":   2010,
+"prevalencia":  29285,
+"fillKey": "(28861,41048]" 
+},
+"TAB": {
+ "state_code": 27,
+"name": "TAB",
+"state_name": "Tabasco",
+"year":   2010,
+"prevalencia":  25074,
+"fillKey": "(24753,28861]" 
+},
+"TAM": {
+ "state_code": 28,
+"name": "TAM",
+"state_name": "Tamaulipas",
+"year":   2010,
+"prevalencia":  22647,
+"fillKey": "(21576,24753]" 
+},
+"TLA": {
+ "state_code": 29,
+"name": "TLA",
+"state_name": "Tlaxcala",
+"year":   2010,
+"prevalencia":  20721,
+"fillKey": "(19451,21576]" 
+},
+"VER": {
+ "state_code": 30,
+"name": "VER",
+"state_name": "Veracruz de Ignacio de la Llave",
+"year":   2010,
+"prevalencia":  16437,
+"fillKey": "[12620,19451]" 
+},
+"YUC": {
+ "state_code": 31,
+"name": "YUC",
+"state_name": "Yucatán",
+"year":   2010,
+"prevalencia":  17826,
+"fillKey": "[12620,19451]" 
+},
+"ZAC": {
+ "state_code": 32,
+"name": "ZAC",
+"state_name": "Zacatecas",
+"year":   2010,
+"prevalencia":  22747,
+"fillKey": "(21576,24753]" 
+} 
+},
+"2011": {
+ "AGU": {
+ "state_code": 1,
+"name": "AGU",
+"state_name": "Aguascalientes",
+"year":   2011,
+"prevalencia":  25665,
+"fillKey": "(24753,28861]" 
+},
+"BCN": {
+ "state_code": 2,
+"name": "BCN",
+"state_name": "Baja California",
+"year":   2011,
+"prevalencia":  30588,
+"fillKey": "(28861,41048]" 
+},
+"BCS": {
+ "state_code": 3,
+"name": "BCS",
+"state_name": "Baja California Sur",
+"year":   2011,
+"prevalencia":  27019,
+"fillKey": "(24753,28861]" 
+},
+"CAM": {
+ "state_code": 4,
+"name": "CAM",
+"state_name": "Campeche",
+"year":   2011,
+"prevalencia":  17280,
+"fillKey": "[12620,19451]" 
+},
+"COA": {
+ "state_code": 5,
+"name": "COA",
+"state_name": "Coahuila de Zaragoza",
+"year":   2011,
+"prevalencia":  22945,
+"fillKey": "(21576,24753]" 
+},
+"COL": {
+ "state_code": 6,
+"name": "COL",
+"state_name": "Colima",
+"year":   2011,
+"prevalencia":  22193,
+"fillKey": "(21576,24753]" 
+},
+"CHP": {
+ "state_code": 7,
+"name": "CHP",
+"state_name": "Chiapas",
+"year":   2011,
+"prevalencia":  12621,
+"fillKey": "[12620,19451]" 
+},
+"CHH": {
+ "state_code": 8,
+"name": "CHH",
+"state_name": "Chihuahua",
+"year":   2011,
+"prevalencia":  30455,
+"fillKey": "(28861,41048]" 
+},
+"DIF": {
+ "state_code": 9,
+"name": "DIF",
+"state_name": "Distrito Federal",
+"year":   2011,
+"prevalencia":  33256,
+"fillKey": "(28861,41048]" 
+},
+"DUR": {
+ "state_code": 10,
+"name": "DUR",
+"state_name": "Durango",
+"year":   2011,
+"prevalencia":  20111,
+"fillKey": "(19451,21576]" 
+},
+"GUA": {
+ "state_code": 11,
+"name": "GUA",
+"state_name": "Guanajuato",
+"year":   2011,
+"prevalencia":  24753,
+"fillKey": "(21576,24753]" 
+},
+"GRO": {
+ "state_code": 12,
+"name": "GRO",
+"state_name": "Guerrero",
+"year":   2011,
+"prevalencia":  20497,
+"fillKey": "(19451,21576]" 
+},
+"HID": {
+ "state_code": 13,
+"name": "HID",
+"state_name": "Hidalgo",
+"year":   2011,
+"prevalencia":  21821,
+"fillKey": "(21576,24753]" 
+},
+"JAL": {
+ "state_code": 14,
+"name": "JAL",
+"state_name": "Jalisco",
+"year":   2011,
+"prevalencia":  26181,
+"fillKey": "(24753,28861]" 
+},
+"MEX": {
+ "state_code": 15,
+"name": "MEX",
+"state_name": "Estado de México",
+"year":   2011,
+"prevalencia":  31018,
+"fillKey": "(28861,41048]" 
+},
+"MIC": {
+ "state_code": 16,
+"name": "MIC",
+"state_name": "Michoacán de Ocampo",
+"year":   2011,
+"prevalencia":  21040,
+"fillKey": "(19451,21576]" 
+},
+"MOR": {
+ "state_code": 17,
+"name": "MOR",
+"state_name": "Morelos",
+"year":   2011,
+"prevalencia":  22982,
+"fillKey": "(21576,24753]" 
+},
+"NAY": {
+ "state_code": 18,
+"name": "NAY",
+"state_name": "Nayarit",
+"year":   2011,
+"prevalencia":  20877,
+"fillKey": "(19451,21576]" 
+},
+"NLE": {
+ "state_code": 19,
+"name": "NLE",
+"state_name": "Nuevo León",
+"year":   2011,
+"prevalencia":  24991,
+"fillKey": "(24753,28861]" 
+},
+"OAX": {
+ "state_code": 20,
+"name": "OAX",
+"state_name": "Oaxaca",
+"year":   2011,
+"prevalencia":  18129,
+"fillKey": "[12620,19451]" 
+},
+"PUE": {
+ "state_code": 21,
+"name": "PUE",
+"state_name": "Puebla",
+"year":   2011,
+"prevalencia":  23053,
+"fillKey": "(21576,24753]" 
+},
+"QUE": {
+ "state_code": 22,
+"name": "QUE",
+"state_name": "Querétaro",
+"year":   2011,
+"prevalencia":  21576,
+"fillKey": "(19451,21576]" 
+},
+"QROO": {
+ "state_code": 23,
+"name": "QROO",
+"state_name": "Quintana Roo",
+"year":   2011,
+"prevalencia":  26829,
+"fillKey": "(24753,28861]" 
+},
+"SLP": {
+ "state_code": 24,
+"name": "SLP",
+"state_name": "San Luis Potosí",
+"year":   2011,
+"prevalencia":  24847,
+"fillKey": "(24753,28861]" 
+},
+"SIN": {
+ "state_code": 25,
+"name": "SIN",
+"state_name": "Sinaloa",
+"year":   2011,
+"prevalencia":  23948,
+"fillKey": "(21576,24753]" 
+},
+"SON": {
+ "state_code": 26,
+"name": "SON",
+"state_name": "Sonora",
+"year":   2011,
+"prevalencia":  29974,
+"fillKey": "(28861,41048]" 
+},
+"TAB": {
+ "state_code": 27,
+"name": "TAB",
+"state_name": "Tabasco",
+"year":   2011,
+"prevalencia":  19612,
+"fillKey": "(19451,21576]" 
+},
+"TAM": {
+ "state_code": 28,
+"name": "TAM",
+"state_name": "Tamaulipas",
+"year":   2011,
+"prevalencia":  18126,
+"fillKey": "[12620,19451]" 
+},
+"TLA": {
+ "state_code": 29,
+"name": "TLA",
+"state_name": "Tlaxcala",
+"year":   2011,
+"prevalencia":  18362,
+"fillKey": "[12620,19451]" 
+},
+"VER": {
+ "state_code": 30,
+"name": "VER",
+"state_name": "Veracruz de Ignacio de la Llave",
+"year":   2011,
+"prevalencia":  17820,
+"fillKey": "[12620,19451]" 
+},
+"YUC": {
+ "state_code": 31,
+"name": "YUC",
+"state_name": "Yucatán",
+"year":   2011,
+"prevalencia":  14832,
+"fillKey": "[12620,19451]" 
+},
+"ZAC": {
+ "state_code": 32,
+"name": "ZAC",
+"state_name": "Zacatecas",
+"year":   2011,
+"prevalencia":  21146,
+"fillKey": "(19451,21576]" 
+} 
+},
+"2012": {
+ "AGU": {
+ "state_code": 1,
+"name": "AGU",
+"state_name": "Aguascalientes",
+"year":   2012,
+"prevalencia":  27225,
+"fillKey": "(24753,28861]" 
+},
+"BCN": {
+ "state_code": 2,
+"name": "BCN",
+"state_name": "Baja California",
+"year":   2012,
+"prevalencia":  36579,
+"fillKey": "(28861,41048]" 
+},
+"BCS": {
+ "state_code": 3,
+"name": "BCS",
+"state_name": "Baja California Sur",
+"year":   2012,
+"prevalencia":  27043,
+"fillKey": "(24753,28861]" 
+},
+"CAM": {
+ "state_code": 4,
+"name": "CAM",
+"state_name": "Campeche",
+"year":   2012,
+"prevalencia":  21991,
+"fillKey": "(21576,24753]" 
+},
+"COA": {
+ "state_code": 5,
+"name": "COA",
+"state_name": "Coahuila de Zaragoza",
+"year":   2012,
+"prevalencia":  19540,
+"fillKey": "(19451,21576]" 
+},
+"COL": {
+ "state_code": 6,
+"name": "COL",
+"state_name": "Colima",
+"year":   2012,
+"prevalencia":  24908,
+"fillKey": "(24753,28861]" 
+},
+"CHP": {
+ "state_code": 7,
+"name": "CHP",
+"state_name": "Chiapas",
+"year":   2012,
+"prevalencia":  12620,
+"fillKey": "[12620,19451]" 
+},
+"CHH": {
+ "state_code": 8,
+"name": "CHH",
+"state_name": "Chihuahua",
+"year":   2012,
+"prevalencia":  32567,
+"fillKey": "(28861,41048]" 
+},
+"DIF": {
+ "state_code": 9,
+"name": "DIF",
+"state_name": "Distrito Federal",
+"year":   2012,
+"prevalencia":  31675,
+"fillKey": "(28861,41048]" 
+},
+"DUR": {
+ "state_code": 10,
+"name": "DUR",
+"state_name": "Durango",
+"year":   2012,
+"prevalencia":  24232,
+"fillKey": "(21576,24753]" 
+},
+"GUA": {
+ "state_code": 11,
+"name": "GUA",
+"state_name": "Guanajuato",
+"year":   2012,
+"prevalencia":  28861,
+"fillKey": "(24753,28861]" 
+},
+"GRO": {
+ "state_code": 12,
+"name": "GRO",
+"state_name": "Guerrero",
+"year":   2012,
+"prevalencia":  26789,
+"fillKey": "(24753,28861]" 
+},
+"HID": {
+ "state_code": 13,
+"name": "HID",
+"state_name": "Hidalgo",
+"year":   2012,
+"prevalencia":  19451,
+"fillKey": "[12620,19451]" 
+},
+"JAL": {
+ "state_code": 14,
+"name": "JAL",
+"state_name": "Jalisco",
+"year":   2012,
+"prevalencia":  31861,
+"fillKey": "(28861,41048]" 
+},
+"MEX": {
+ "state_code": 15,
+"name": "MEX",
+"state_name": "Estado de México",
+"year":   2012,
+"prevalencia":  41048,
+"fillKey": "(28861,41048]" 
+},
+"MIC": {
+ "state_code": 16,
+"name": "MIC",
+"state_name": "Michoacán de Ocampo",
+"year":   2012,
+"prevalencia":  20354,
+"fillKey": "(19451,21576]" 
+},
+"MOR": {
+ "state_code": 17,
+"name": "MOR",
+"state_name": "Morelos",
+"year":   2012,
+"prevalencia":  29310,
+"fillKey": "(28861,41048]" 
+},
+"NAY": {
+ "state_code": 18,
+"name": "NAY",
+"state_name": "Nayarit",
+"year":   2012,
+"prevalencia":  19169,
+"fillKey": "[12620,19451]" 
+},
+"NLE": {
+ "state_code": 19,
+"name": "NLE",
+"state_name": "Nuevo León",
+"year":   2012,
+"prevalencia":  31316,
+"fillKey": "(28861,41048]" 
+},
+"OAX": {
+ "state_code": 20,
+"name": "OAX",
+"state_name": "Oaxaca",
+"year":   2012,
+"prevalencia":  14335,
+"fillKey": "[12620,19451]" 
+},
+"PUE": {
+ "state_code": 21,
+"name": "PUE",
+"state_name": "Puebla",
+"year":   2012,
+"prevalencia":  22733,
+"fillKey": "(21576,24753]" 
+},
+"QUE": {
+ "state_code": 22,
+"name": "QUE",
+"state_name": "Querétaro",
+"year":   2012,
+"prevalencia":  24002,
+"fillKey": "(21576,24753]" 
+},
+"QROO": {
+ "state_code": 23,
+"name": "QROO",
+"state_name": "Quintana Roo",
+"year":   2012,
+"prevalencia":  29703,
+"fillKey": "(28861,41048]" 
+},
+"SLP": {
+ "state_code": 24,
+"name": "SLP",
+"state_name": "San Luis Potosí",
+"year":   2012,
+"prevalencia":  26810,
+"fillKey": "(24753,28861]" 
+},
+"SIN": {
+ "state_code": 25,
+"name": "SIN",
+"state_name": "Sinaloa",
+"year":   2012,
+"prevalencia":  26141,
+"fillKey": "(24753,28861]" 
+},
+"SON": {
+ "state_code": 26,
+"name": "SON",
+"state_name": "Sonora",
+"year":   2012,
+"prevalencia":  29131,
+"fillKey": "(28861,41048]" 
+},
+"TAB": {
+ "state_code": 27,
+"name": "TAB",
+"state_name": "Tabasco",
+"year":   2012,
+"prevalencia":  20837,
+"fillKey": "(19451,21576]" 
+},
+"TAM": {
+ "state_code": 28,
+"name": "TAM",
+"state_name": "Tamaulipas",
+"year":   2012,
+"prevalencia":  21407,
+"fillKey": "(19451,21576]" 
+},
+"TLA": {
+ "state_code": 29,
+"name": "TLA",
+"state_name": "Tlaxcala",
+"year":   2012,
+"prevalencia":  18150,
+"fillKey": "[12620,19451]" 
+},
+"VER": {
+ "state_code": 30,
+"name": "VER",
+"state_name": "Veracruz de Ignacio de la Llave",
+"year":   2012,
+"prevalencia":  18733,
+"fillKey": "[12620,19451]" 
+},
+"YUC": {
+ "state_code": 31,
+"name": "YUC",
+"state_name": "Yucatán",
+"year":   2012,
+"prevalencia":  19548,
+"fillKey": "(19451,21576]" 
+},
+"ZAC": {
+ "state_code": 32,
+"name": "ZAC",
+"state_name": "Zacatecas",
+"year":   2012,
+"prevalencia":  20337,
+"fillKey": "(19451,21576]" 
+} 
+} 
+} 
+}
+  chartParams.element = document.getElementById('chart_1')
+  
+  
+  var mapchart_1 = new Datamap(chartParams);
+  
+  
+    
+  // draw a bubble map if specified
+  if (chartParams.bubbles) {
+    var bubbles = chartParams.bubbles
+    mapchart_1.bubbles(bubbles)
+  }
+  
+  if (chartParams.labels){
+    mapchart_1.labels()
+  }
+  
+  if (chartParams.legend){
+    mapchart_1.legend()
+  }
+  
+  setProjection = function( element, options ) {
+    var projection, path;
+ 
+      projection = d3.geo.albersUsa()
+        .scale(element.offsetWidth)
+        .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+ 
+    path = d3.geo.path()
+      .projection( projection );
+ 
+    return {path: path, projection: projection};
+  }
+</script>
+
+<style>
+.datamaps {
+  position: relative;
+}
+</style>
+    
+    <script></script>    
+  </body>
+</html>
