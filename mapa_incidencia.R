@@ -7,12 +7,12 @@
 require(reshape2)
 require(devtools)
 
-install_github(repo='rCharts',username='ramnathv',ref="dev")
-install_github(repo='rMaps',username='ramnathv',ref="master")
+#install_github(repo='rCharts',username='ramnathv',ref="dev")
+#install_github(repo='rMaps',username='ramnathv',ref="master")
 
 # Carga datos
 #####
-envipe  <- read.csv("envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
+envipe  <- read.csv("data/envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
 
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
@@ -33,6 +33,17 @@ minc$year  <- as.numeric(minc$year)
 table(minc$year) # 32 obs 
 head(minc); tail(minc)
 
+# Mapas interactivos:
+#======
+# Instalar librerías en Mac
+
+#require(reshape2)
+#require(devtools)
+#install_github(repo='rCharts',username='ramnathv',ref="dev")
+#install_github(repo='rMaps',username='ramnathv',ref="master")
+#require(rCharts)
+#require(rMaps)
+
 # Esta parte del script produce un mapa interactivo .html
 # Requiere un servidor local, en la terminal de Mac usar: python -m SimpleHTTPServer 8888
 ##### 
@@ -41,9 +52,9 @@ head(minc); tail(minc)
 dat <- transform(minc,
                  fillKey = cut(incidencia, breaks=c(quantile(incidencia, probs = seq(0, 1, by = 0.20))), dig.lab = 5, include.lowest=T, right=T)
 )
-dat
+table(dat$fillKey)
 keyNames <- levels(dat$fillKey)
-
+dat$incidencia  <- format(dat$incidencia, big.mark=",", digits=1)
 # Colores
 
 fills = setNames(
@@ -65,7 +76,7 @@ d1$set(
   geographyConfig = list(
     dataUrl = "shapefiles/mx_states.json",
     popupTemplate =  "#! function(geography, data) { //this function should just return a string
-    return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
+    return '<div class=hoverinfo>' + geography.properties.name + ': ' + data.incidencia + '</div>';
     }  !#"
   ),
   dom = 'chart_1',

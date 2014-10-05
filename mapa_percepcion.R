@@ -7,19 +7,20 @@ getwd()
 require(reshape2)
 require(devtools)
 
-install_github(repo='rCharts',username='ramnathv',ref="dev")
-install_github(repo='rMaps',username='ramnathv',ref="master")
+#install_github(repo='rCharts',username='ramnathv',ref="dev")
+#install_github(repo='rMaps',username='ramnathv',ref="master")
 
 # Carga datos
 #####
-envipe  <- read.csv("envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
-
+envipe  <- read.csv("data/envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
+head(envipe) ; tail(envipe)
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset prevalencia delictiva
 names(envipe)
 ins  <- envipe[,c(1:3,6,9,12)] 
 names(ins)
+head(ins)
 # Melt dataframe
 mins  <- melt(data=ins,id.vars=c(1:3))
 head(mins); tail(mins)
@@ -41,9 +42,9 @@ head(mins); tail(mins)
 dat <- transform(mins,
                  fillKey = cut(percepcion, breaks=c(quantile(percepcion, probs = seq(0, 1, by = 0.20))), dig.lab = 2, include.lowest=T, right=T)
 )
-dat
+head(dat)
 keyNames <- levels(dat$fillKey)
-
+dat$percepcion  <- format(dat$percepcion, big.mark=",", digits=1)
 # Colores
 
 fills = setNames(
@@ -58,14 +59,14 @@ dat2 <- plyr::dlply(na.omit(dat), "year", function(x){
   return(y)
 })
 
-# Existe un bug en la función ichoropleth, utilizar el formato propuesto por Diego Valle-Jones 
+# Existe un error en la función ichoropleth, utilizar el formato propuesto por Diego Valle-Jones 
 
 d1 <- Datamaps$new()
 d1$set(
   geographyConfig = list(
     dataUrl = "shapefiles/mx_states.json",
     popupTemplate =  "#! function(geography, data) { //this function should just return a string
-    return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
+    return '<div class=hoverinfo>' + geography.properties.name + ': ' + data.percepcion + '</div>';
     }  !#"
   ),
   dom = 'chart_1',

@@ -15,7 +15,7 @@ install_github(repo='rMaps',username='ramnathv',ref="master")
 
 # Carga datos
 #####
-envipe  <- read.csv("envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
+envipe  <- read.csv("data/envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
 
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
@@ -46,7 +46,7 @@ dat <- transform(mprev,
 )
 dat
 keyNames <- levels(dat$fillKey)
-
+dat$prevalencia  <- format(dat$prevalencia, big.mark=",", digits=1)
 # Colores
 
 fills = setNames(
@@ -61,14 +61,14 @@ dat2 <- plyr::dlply(na.omit(dat), "year", function(x){
   return(y)
 })
 
-# Existe un bug en la función ichoropleth, utilizar el formato propuesto por Diego Valle-Jones 
+# Existe un error en la función ichoropleth, utilizar el formato propuesto por Diego Valle-Jones 
 
 d1 <- Datamaps$new()
 d1$set(
   geographyConfig = list(
     dataUrl = "shapefiles/mx_states.json",
     popupTemplate =  "#! function(geography, data) { //this function should just return a string
-    return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
+    return '<div class=hoverinfo>' + geography.properties.name + ': ' + data.prevalencia + '</div>';
     }  !#"
   ),
   dom = 'chart_1',
