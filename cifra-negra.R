@@ -11,6 +11,9 @@ require(devtools)
 install_github(repo='rCharts',username='ramnathv',ref="dev")
 install_github(repo='rMaps',username='ramnathv',ref="master")
 
+install_github('ramnathv/rCharts')
+install_github('ramnathv/rCharts@dev')
+install_github('ramnathv/rMaps')
 # Cálculo de la cifra negra a nivel estatal
 
 # La cifra negra se calculará como la diferencia en la tasa de incidencia delictiva en 2012
@@ -20,13 +23,13 @@ install_github(repo='rMaps',username='ramnathv',ref="master")
 
 # Carga datos
 #####
-envipe  <- read.csv("data/envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
+envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
 
 # Mantener solo datos para los estados
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset prevalencia delictiva
 names(envipe)
-inc  <- envipe[,c(1:3,5,8,11)] 
+inc  <- envipe[,c(1:3,5,8,11,14)] 
 names(inc)
 
 # Agregar datos de averiguaciones previas
@@ -35,7 +38,7 @@ head(ave)
 
 # Mantener solo el año de interes para las averiguaciones previas en 2010, 2011 y 2012
 table(ave$year)
-ave  <- subset(ave, ave$year == 2010 | ave$year == 2011 | ave$year == 2012) 
+ave  <- subset(ave, ave$year == 2010 | ave$year == 2011 | ave$year == 2012 | ave$year == 2013) 
 
 # Colapsar todas las averiguaciones previas en una sola
 names(ave)
@@ -69,12 +72,13 @@ head(data)
 data  <- transform(data, cf2010 = ((inc2010 -rate_2010)/inc2010)*100 )
 data  <- transform(data, cf2011 = ((inc2011 -rate_2011)/inc2011)*100 )
 data  <- transform(data, cf2012 = ((inc2012 -rate_2012)/inc2012)*100 )
+data  <- transform(data, cf2013 = ((inc2013 -rate_2013)/inc2013)*100 )
 
 # Mantener solo las columnas de cifra negra
-data  <- data[,-4:-9]
+data  <- data[,-4:-11]
 # Cambiar formato a dos decimales
 names(data)
-cols  <- c(4:6)
+cols  <- c(4:7)
 data[,cols]  <-  apply(data[,cols], 2, function(x) as.numeric(format(round(as.numeric(x),2), nsmall = 2)))
 summary(data[,cols])
 
@@ -183,7 +187,7 @@ d1$setTemplate(chartDiv = "
                </div>
                <script>
                function rChartsCtrl($scope){
-               $scope.years = [2010, 2011, 2012]
+               $scope.years = [2010, 2011, 2012, 2013]
                $scope.year = $scope.years[0]
                $scope.updateYear = function(x){
                $scope.year = x

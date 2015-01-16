@@ -16,9 +16,9 @@
       margin-right: auto;
       width: 800px;
       height: 400px;
-    }
+    }  
     .container { margin-top: 20px; }
-    .datamaps-legend dt{font-weight: normal; }  
+ .datamaps-legend dt{font-weight: normal; }
     </style>
     
   </head>
@@ -31,14 +31,14 @@
                    <button ng-repeat="value in years" ng-click='updateYear(value)'
                    class="btn btn-default" type="button" 
                    ng-model="value" btn-radio="value">
-                  {{value}}
+    {{value}}
                    </button>
                    </div>
                    <div id='chart_1' class='rChart datamaps'></div>  
                    </div>
                    <script>
                    function rChartsCtrl($scope){
-                   $scope.years = [2010, 2011, 2012]
+                   $scope.years = [2010, 2011, 2012, 2013]
                    $scope.year = $scope.years[0]
                    $scope.updateYear = function(x){
                    $scope.year = x
@@ -60,7 +60,7 @@
  "dataUrl": "shapefiles/mx_states.json",
 "popupTemplate":  function(geography, data) { //this function should just return a string
     return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
-    }   
+    }  
 },
 "scope": "states",
 "labels": true,
@@ -73,36 +73,34 @@
   .center([-90, 24])
   .scale(element.offsetWidth)
   .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
-  
   path = d3.geo.path()
   .projection( projection );
-  
   return {path: path, projection: projection};
   } ,
 "fills": {
- "[85.2,92.9]": "#FFFFB2",
-"(92.9,94.7]": "#FECC5C",
+ "[85.2,93]": "#FFFFB2",
+"(93,94.7]": "#FECC5C",
 "(94.7,95.8]": "#FD8D3C",
-"(95.8,96.9]": "#F03B20",
-"(96.9,99.5]": "#BD0026",
+"(95.8,97]": "#F03B20",
+"(97,99.5]": "#BD0026",
 "defaultFill": "#BD0026" 
 },
 "data": {
- "AGU": {
+ "AGS": {
  "state_code": 1,
-"name": "AGU",
+"name": "AGS",
 "state_name": "Aguascalientes",
 "year":   2010,
 "cifra_negra":  97.05,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"BCN": {
+"BC": {
  "state_code": 2,
-"name": "BCN",
+"name": "BC",
 "state_name": "Baja California",
 "year":   2010,
 "cifra_negra":  89.24,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "BCS": {
  "state_code": 3,
@@ -110,7 +108,7 @@
 "state_name": "Baja California Sur",
 "year":   2010,
 "cifra_negra":  90.75,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "CAM": {
  "state_code": 4,
@@ -118,7 +116,7 @@
 "state_name": "Campeche",
 "year":   2010,
 "cifra_negra":  98.84,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "COA": {
  "state_code": 5,
@@ -126,7 +124,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2010,
 "cifra_negra":  93.92,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "COL": {
  "state_code": 6,
@@ -134,27 +132,27 @@
 "state_name": "Colima",
 "year":   2010,
 "cifra_negra":  93.39,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"CHP": {
+"CHIS": {
  "state_code": 7,
-"name": "CHP",
+"name": "CHIS",
 "state_name": "Chiapas",
 "year":   2010,
 "cifra_negra":   96.9,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(95.8,97]" 
 },
-"CHH": {
+"CHIH": {
  "state_code": 8,
-"name": "CHH",
+"name": "CHIH",
 "state_name": "Chihuahua",
 "year":   2010,
 "cifra_negra":  95.14,
 "fillKey": "(94.7,95.8]" 
 },
-"DIF": {
+"DF": {
  "state_code": 9,
-"name": "DIF",
+"name": "DF",
 "state_name": "Distrito Federal",
 "year":   2010,
 "cifra_negra":  95.09,
@@ -166,15 +164,15 @@
 "state_name": "Durango",
 "year":   2010,
 "cifra_negra":  92.48,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
-"GUA": {
+"GTO": {
  "state_code": 11,
-"name": "GUA",
+"name": "GTO",
 "state_name": "Guanajuato",
 "year":   2010,
 "cifra_negra":  93.85,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "GRO": {
  "state_code": 12,
@@ -182,15 +180,15 @@
 "state_name": "Guerrero",
 "year":   2010,
 "cifra_negra":  97.85,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"HID": {
+"HGO": {
  "state_code": 13,
-"name": "HID",
+"name": "HGO",
 "state_name": "Hidalgo",
 "year":   2010,
 "cifra_negra":  93.48,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "JAL": {
  "state_code": 14,
@@ -198,20 +196,20 @@
 "state_name": "Jalisco",
 "year":   2010,
 "cifra_negra":  96.55,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de México",
+"state_name": "Estado de M?xico",
 "year":   2010,
 "cifra_negra":   94.8,
 "fillKey": "(94.7,95.8]" 
 },
-"MIC": {
+"MICH": {
  "state_code": 16,
-"name": "MIC",
-"state_name": "Michoacán de Ocampo",
+"name": "MICH",
+"state_name": "Michoac?n de Ocampo",
 "year":   2010,
 "cifra_negra":   95.1,
 "fillKey": "(94.7,95.8]" 
@@ -222,7 +220,7 @@
 "state_name": "Morelos",
 "year":   2010,
 "cifra_negra":   91.6,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "NAY": {
  "state_code": 18,
@@ -230,15 +228,15 @@
 "state_name": "Nayarit",
 "year":   2010,
 "cifra_negra":  97.86,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"NLE": {
+"NL": {
  "state_code": 19,
-"name": "NLE",
-"state_name": "Nuevo León",
+"name": "NL",
+"state_name": "Nuevo Le?n",
 "year":   2010,
 "cifra_negra":  97.02,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "OAX": {
  "state_code": 20,
@@ -246,7 +244,7 @@
 "state_name": "Oaxaca",
 "year":   2010,
 "cifra_negra":  94.19,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "PUE": {
  "state_code": 21,
@@ -256,10 +254,10 @@
 "cifra_negra":  95.13,
 "fillKey": "(94.7,95.8]" 
 },
-"QUE": {
+"QR": {
  "state_code": 22,
-"name": "QUE",
-"state_name": "Querétaro",
+"name": "QR",
+"state_name": "Quer?taro",
 "year":   2010,
 "cifra_negra":  94.72,
 "fillKey": "(94.7,95.8]" 
@@ -270,15 +268,15 @@
 "state_name": "Quintana Roo",
 "year":   2010,
 "cifra_negra":  93.86,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosí",
+"state_name": "San Luis Potos?",
 "year":   2010,
 "cifra_negra":  94.56,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "SIN": {
  "state_code": 25,
@@ -286,7 +284,7 @@
 "state_name": "Sinaloa",
 "year":   2010,
 "cifra_negra":  96.58,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "SON": {
  "state_code": 26,
@@ -294,7 +292,7 @@
 "state_name": "Sonora",
 "year":   2010,
 "cifra_negra":  97.77,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "TAB": {
  "state_code": 27,
@@ -302,7 +300,7 @@
 "state_name": "Tabasco",
 "year":   2010,
 "cifra_negra":  91.04,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "TAM": {
  "state_code": 28,
@@ -318,7 +316,7 @@
 "state_name": "Tlaxcala",
 "year":   2010,
 "cifra_negra":   98.3,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "VER": {
  "state_code": 30,
@@ -331,10 +329,10 @@
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatán",
+"state_name": "Yucat?n",
 "year":   2010,
 "cifra_negra":  92.89,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -342,28 +340,28 @@
 "state_name": "Zacatecas",
 "year":   2010,
 "cifra_negra":  96.86,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 } 
 },
 "legend": true,
 "id": "chart_1",
 "newData": {
  "2010": {
- "AGU": {
+ "AGS": {
  "state_code": 1,
-"name": "AGU",
+"name": "AGS",
 "state_name": "Aguascalientes",
 "year":   2010,
 "cifra_negra":  97.05,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"BCN": {
+"BC": {
  "state_code": 2,
-"name": "BCN",
+"name": "BC",
 "state_name": "Baja California",
 "year":   2010,
 "cifra_negra":  89.24,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "BCS": {
  "state_code": 3,
@@ -371,7 +369,7 @@
 "state_name": "Baja California Sur",
 "year":   2010,
 "cifra_negra":  90.75,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "CAM": {
  "state_code": 4,
@@ -379,7 +377,7 @@
 "state_name": "Campeche",
 "year":   2010,
 "cifra_negra":  98.84,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "COA": {
  "state_code": 5,
@@ -387,7 +385,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2010,
 "cifra_negra":  93.92,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "COL": {
  "state_code": 6,
@@ -395,27 +393,27 @@
 "state_name": "Colima",
 "year":   2010,
 "cifra_negra":  93.39,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"CHP": {
+"CHIS": {
  "state_code": 7,
-"name": "CHP",
+"name": "CHIS",
 "state_name": "Chiapas",
 "year":   2010,
 "cifra_negra":   96.9,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(95.8,97]" 
 },
-"CHH": {
+"CHIH": {
  "state_code": 8,
-"name": "CHH",
+"name": "CHIH",
 "state_name": "Chihuahua",
 "year":   2010,
 "cifra_negra":  95.14,
 "fillKey": "(94.7,95.8]" 
 },
-"DIF": {
+"DF": {
  "state_code": 9,
-"name": "DIF",
+"name": "DF",
 "state_name": "Distrito Federal",
 "year":   2010,
 "cifra_negra":  95.09,
@@ -427,15 +425,15 @@
 "state_name": "Durango",
 "year":   2010,
 "cifra_negra":  92.48,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
-"GUA": {
+"GTO": {
  "state_code": 11,
-"name": "GUA",
+"name": "GTO",
 "state_name": "Guanajuato",
 "year":   2010,
 "cifra_negra":  93.85,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "GRO": {
  "state_code": 12,
@@ -443,15 +441,15 @@
 "state_name": "Guerrero",
 "year":   2010,
 "cifra_negra":  97.85,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"HID": {
+"HGO": {
  "state_code": 13,
-"name": "HID",
+"name": "HGO",
 "state_name": "Hidalgo",
 "year":   2010,
 "cifra_negra":  93.48,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "JAL": {
  "state_code": 14,
@@ -459,20 +457,20 @@
 "state_name": "Jalisco",
 "year":   2010,
 "cifra_negra":  96.55,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de México",
+"state_name": "Estado de M?xico",
 "year":   2010,
 "cifra_negra":   94.8,
 "fillKey": "(94.7,95.8]" 
 },
-"MIC": {
+"MICH": {
  "state_code": 16,
-"name": "MIC",
-"state_name": "Michoacán de Ocampo",
+"name": "MICH",
+"state_name": "Michoac?n de Ocampo",
 "year":   2010,
 "cifra_negra":   95.1,
 "fillKey": "(94.7,95.8]" 
@@ -483,7 +481,7 @@
 "state_name": "Morelos",
 "year":   2010,
 "cifra_negra":   91.6,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "NAY": {
  "state_code": 18,
@@ -491,15 +489,15 @@
 "state_name": "Nayarit",
 "year":   2010,
 "cifra_negra":  97.86,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"NLE": {
+"NL": {
  "state_code": 19,
-"name": "NLE",
-"state_name": "Nuevo León",
+"name": "NL",
+"state_name": "Nuevo Le?n",
 "year":   2010,
 "cifra_negra":  97.02,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "OAX": {
  "state_code": 20,
@@ -507,7 +505,7 @@
 "state_name": "Oaxaca",
 "year":   2010,
 "cifra_negra":  94.19,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "PUE": {
  "state_code": 21,
@@ -517,10 +515,10 @@
 "cifra_negra":  95.13,
 "fillKey": "(94.7,95.8]" 
 },
-"QUE": {
+"QR": {
  "state_code": 22,
-"name": "QUE",
-"state_name": "Querétaro",
+"name": "QR",
+"state_name": "Quer?taro",
 "year":   2010,
 "cifra_negra":  94.72,
 "fillKey": "(94.7,95.8]" 
@@ -531,15 +529,15 @@
 "state_name": "Quintana Roo",
 "year":   2010,
 "cifra_negra":  93.86,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosí",
+"state_name": "San Luis Potos?",
 "year":   2010,
 "cifra_negra":  94.56,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "SIN": {
  "state_code": 25,
@@ -547,7 +545,7 @@
 "state_name": "Sinaloa",
 "year":   2010,
 "cifra_negra":  96.58,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "SON": {
  "state_code": 26,
@@ -555,7 +553,7 @@
 "state_name": "Sonora",
 "year":   2010,
 "cifra_negra":  97.77,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "TAB": {
  "state_code": 27,
@@ -563,7 +561,7 @@
 "state_name": "Tabasco",
 "year":   2010,
 "cifra_negra":  91.04,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "TAM": {
  "state_code": 28,
@@ -579,7 +577,7 @@
 "state_name": "Tlaxcala",
 "year":   2010,
 "cifra_negra":   98.3,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "VER": {
  "state_code": 30,
@@ -592,10 +590,10 @@
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatán",
+"state_name": "Yucat?n",
 "year":   2010,
 "cifra_negra":  92.89,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -603,25 +601,25 @@
 "state_name": "Zacatecas",
 "year":   2010,
 "cifra_negra":  96.86,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 } 
 },
 "2011": {
- "AGU": {
+ "AGS": {
  "state_code": 1,
-"name": "AGU",
+"name": "AGS",
 "state_name": "Aguascalientes",
 "year":   2011,
 "cifra_negra":  92.31,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
-"BCN": {
+"BC": {
  "state_code": 2,
-"name": "BCN",
+"name": "BC",
 "state_name": "Baja California",
 "year":   2011,
 "cifra_negra":  88.14,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "BCS": {
  "state_code": 3,
@@ -629,7 +627,7 @@
 "state_name": "Baja California Sur",
 "year":   2011,
 "cifra_negra":  90.72,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "CAM": {
  "state_code": 4,
@@ -637,7 +635,7 @@
 "state_name": "Campeche",
 "year":   2011,
 "cifra_negra":  98.68,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "COA": {
  "state_code": 5,
@@ -645,7 +643,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2011,
 "cifra_negra":  93.51,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "COL": {
  "state_code": 6,
@@ -653,27 +651,27 @@
 "state_name": "Colima",
 "year":   2011,
 "cifra_negra":  93.75,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"CHP": {
+"CHIS": {
  "state_code": 7,
-"name": "CHP",
+"name": "CHIS",
 "state_name": "Chiapas",
 "year":   2011,
 "cifra_negra":   96.4,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
-"CHH": {
+"CHIH": {
  "state_code": 8,
-"name": "CHH",
+"name": "CHIH",
 "state_name": "Chihuahua",
 "year":   2011,
 "cifra_negra":  94.03,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"DIF": {
+"DF": {
  "state_code": 9,
-"name": "DIF",
+"name": "DF",
 "state_name": "Distrito Federal",
 "year":   2011,
 "cifra_negra":  94.89,
@@ -685,15 +683,15 @@
 "state_name": "Durango",
 "year":   2011,
 "cifra_negra":  91.53,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
-"GUA": {
+"GTO": {
  "state_code": 11,
-"name": "GUA",
+"name": "GTO",
 "state_name": "Guanajuato",
 "year":   2011,
 "cifra_negra":  94.68,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "GRO": {
  "state_code": 12,
@@ -703,9 +701,9 @@
 "cifra_negra":  95.46,
 "fillKey": "(94.7,95.8]" 
 },
-"HID": {
+"HGO": {
  "state_code": 13,
-"name": "HID",
+"name": "HGO",
 "state_name": "Hidalgo",
 "year":   2011,
 "cifra_negra":  95.75,
@@ -717,23 +715,23 @@
 "state_name": "Jalisco",
 "year":   2011,
 "cifra_negra":  96.18,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de México",
+"state_name": "Estado de M?xico",
 "year":   2011,
 "cifra_negra":  95.81,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(94.7,95.8]" 
 },
-"MIC": {
+"MICH": {
  "state_code": 16,
-"name": "MIC",
-"state_name": "Michoacán de Ocampo",
+"name": "MICH",
+"state_name": "Michoac?n de Ocampo",
 "year":   2011,
 "cifra_negra":  96.99,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "MOR": {
  "state_code": 17,
@@ -741,7 +739,7 @@
 "state_name": "Morelos",
 "year":   2011,
 "cifra_negra":  91.23,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "NAY": {
  "state_code": 18,
@@ -749,15 +747,15 @@
 "state_name": "Nayarit",
 "year":   2011,
 "cifra_negra":  97.72,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"NLE": {
+"NL": {
  "state_code": 19,
-"name": "NLE",
-"state_name": "Nuevo León",
+"name": "NL",
+"state_name": "Nuevo Le?n",
 "year":   2011,
 "cifra_negra":  95.92,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "OAX": {
  "state_code": 20,
@@ -765,7 +763,7 @@
 "state_name": "Oaxaca",
 "year":   2011,
 "cifra_negra":  94.34,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "PUE": {
  "state_code": 21,
@@ -775,10 +773,10 @@
 "cifra_negra":  95.36,
 "fillKey": "(94.7,95.8]" 
 },
-"QUE": {
+"QR": {
  "state_code": 22,
-"name": "QUE",
-"state_name": "Querétaro",
+"name": "QR",
+"state_name": "Quer?taro",
 "year":   2011,
 "cifra_negra":  94.77,
 "fillKey": "(94.7,95.8]" 
@@ -789,15 +787,15 @@
 "state_name": "Quintana Roo",
 "year":   2011,
 "cifra_negra":  93.91,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosí",
+"state_name": "San Luis Potos?",
 "year":   2011,
 "cifra_negra":  95.88,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "SIN": {
  "state_code": 25,
@@ -805,7 +803,7 @@
 "state_name": "Sinaloa",
 "year":   2011,
 "cifra_negra":  95.79,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(94.7,95.8]" 
 },
 "SON": {
  "state_code": 26,
@@ -813,7 +811,7 @@
 "state_name": "Sonora",
 "year":   2011,
 "cifra_negra":  97.15,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "TAB": {
  "state_code": 27,
@@ -821,7 +819,7 @@
 "state_name": "Tabasco",
 "year":   2011,
 "cifra_negra":  86.63,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "TAM": {
  "state_code": 28,
@@ -829,7 +827,7 @@
 "state_name": "Tamaulipas",
 "year":   2011,
 "cifra_negra":     93,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "TLA": {
  "state_code": 29,
@@ -837,7 +835,7 @@
 "state_name": "Tlaxcala",
 "year":   2011,
 "cifra_negra":  97.43,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "VER": {
  "state_code": 30,
@@ -845,15 +843,15 @@
 "state_name": "Veracruz de Ignacio de la Llave",
 "year":   2011,
 "cifra_negra":  95.84,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatán",
+"state_name": "Yucat?n",
 "year":   2011,
 "cifra_negra":  85.18,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -865,21 +863,21 @@
 } 
 },
 "2012": {
- "AGU": {
+ "AGS": {
  "state_code": 1,
-"name": "AGU",
+"name": "AGS",
 "state_name": "Aguascalientes",
 "year":   2012,
 "cifra_negra":  94.05,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"BCN": {
+"BC": {
  "state_code": 2,
-"name": "BCN",
+"name": "BC",
 "state_name": "Baja California",
 "year":   2012,
 "cifra_negra":  91.76,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "BCS": {
  "state_code": 3,
@@ -887,7 +885,7 @@
 "state_name": "Baja California Sur",
 "year":   2012,
 "cifra_negra":  90.48,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "CAM": {
  "state_code": 4,
@@ -895,7 +893,7 @@
 "state_name": "Campeche",
 "year":   2012,
 "cifra_negra":   99.5,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "COA": {
  "state_code": 5,
@@ -903,7 +901,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2012,
 "cifra_negra":  90.52,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "COL": {
  "state_code": 6,
@@ -911,31 +909,31 @@
 "state_name": "Colima",
 "year":   2012,
 "cifra_negra":  92.81,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
-"CHP": {
+"CHIS": {
  "state_code": 7,
-"name": "CHP",
+"name": "CHIS",
 "state_name": "Chiapas",
 "year":   2012,
 "cifra_negra":  96.46,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
-"CHH": {
+"CHIH": {
  "state_code": 8,
-"name": "CHH",
+"name": "CHIH",
 "state_name": "Chihuahua",
 "year":   2012,
 "cifra_negra":  95.31,
 "fillKey": "(94.7,95.8]" 
 },
-"DIF": {
+"DF": {
  "state_code": 9,
-"name": "DIF",
+"name": "DF",
 "state_name": "Distrito Federal",
 "year":   2012,
 "cifra_negra":  95.92,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "DUR": {
  "state_code": 10,
@@ -943,15 +941,15 @@
 "state_name": "Durango",
 "year":   2012,
 "cifra_negra":  94.25,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"GUA": {
+"GTO": {
  "state_code": 11,
-"name": "GUA",
+"name": "GTO",
 "state_name": "Guanajuato",
 "year":   2012,
 "cifra_negra":  95.96,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "GRO": {
  "state_code": 12,
@@ -959,11 +957,11 @@
 "state_name": "Guerrero",
 "year":   2012,
 "cifra_negra":  96.63,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
-"HID": {
+"HGO": {
  "state_code": 13,
-"name": "HID",
+"name": "HGO",
 "state_name": "Hidalgo",
 "year":   2012,
 "cifra_negra":  95.18,
@@ -975,23 +973,23 @@
 "state_name": "Jalisco",
 "year":   2012,
 "cifra_negra":  97.62,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de México",
+"state_name": "Estado de M?xico",
 "year":   2012,
 "cifra_negra":  97.08,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"MIC": {
+"MICH": {
  "state_code": 16,
-"name": "MIC",
-"state_name": "Michoacán de Ocampo",
+"name": "MICH",
+"state_name": "Michoac?n de Ocampo",
 "year":   2012,
 "cifra_negra":  96.98,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(95.8,97]" 
 },
 "MOR": {
  "state_code": 17,
@@ -999,7 +997,7 @@
 "state_name": "Morelos",
 "year":   2012,
 "cifra_negra":  92.99,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "[85.2,93]" 
 },
 "NAY": {
  "state_code": 18,
@@ -1007,15 +1005,15 @@
 "state_name": "Nayarit",
 "year":   2012,
 "cifra_negra":  97.66,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
-"NLE": {
+"NL": {
  "state_code": 19,
-"name": "NLE",
-"state_name": "Nuevo León",
+"name": "NL",
+"state_name": "Nuevo Le?n",
 "year":   2012,
 "cifra_negra":  97.67,
-"fillKey": "(96.9,99.5]" 
+"fillKey": "(97,99.5]" 
 },
 "OAX": {
  "state_code": 20,
@@ -1023,7 +1021,7 @@
 "state_name": "Oaxaca",
 "year":   2012,
 "cifra_negra":  92.92,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "PUE": {
  "state_code": 21,
@@ -1031,12 +1029,12 @@
 "state_name": "Puebla",
 "year":   2012,
 "cifra_negra":  94.44,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
-"QUE": {
+"QR": {
  "state_code": 22,
-"name": "QUE",
-"state_name": "Querétaro",
+"name": "QR",
+"state_name": "Quer?taro",
 "year":   2012,
 "cifra_negra":  95.04,
 "fillKey": "(94.7,95.8]" 
@@ -1047,15 +1045,15 @@
 "state_name": "Quintana Roo",
 "year":   2012,
 "cifra_negra":  94.01,
-"fillKey": "(92.9,94.7]" 
+"fillKey": "(93,94.7]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosí",
+"state_name": "San Luis Potos?",
 "year":   2012,
 "cifra_negra":  96.66,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "SIN": {
  "state_code": 25,
@@ -1063,7 +1061,7 @@
 "state_name": "Sinaloa",
 "year":   2012,
 "cifra_negra":  96.42,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "SON": {
  "state_code": 26,
@@ -1071,7 +1069,7 @@
 "state_name": "Sonora",
 "year":   2012,
 "cifra_negra":  96.46,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "TAB": {
  "state_code": 27,
@@ -1079,7 +1077,7 @@
 "state_name": "Tabasco",
 "year":   2012,
 "cifra_negra":   88.4,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "TAM": {
  "state_code": 28,
@@ -1095,7 +1093,7 @@
 "state_name": "Tlaxcala",
 "year":   2012,
 "cifra_negra":  96.73,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(95.8,97]" 
 },
 "VER": {
  "state_code": 30,
@@ -1103,15 +1101,15 @@
 "state_name": "Veracruz de Ignacio de la Llave",
 "year":   2012,
 "cifra_negra":  95.78,
-"fillKey": "(95.8,96.9]" 
+"fillKey": "(94.7,95.8]" 
 },
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatán",
+"state_name": "Yucat?n",
 "year":   2012,
 "cifra_negra":  90.07,
-"fillKey": "[85.2,92.9]" 
+"fillKey": "[85.2,93]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -1120,6 +1118,264 @@
 "year":   2012,
 "cifra_negra":  94.95,
 "fillKey": "(94.7,95.8]" 
+} 
+},
+"2013": {
+ "AGS": {
+ "state_code": 1,
+"name": "AGS",
+"state_name": "Aguascalientes",
+"year":   2013,
+"cifra_negra":  92.91,
+"fillKey": "[85.2,93]" 
+},
+"BC": {
+ "state_code": 2,
+"name": "BC",
+"state_name": "Baja California",
+"year":   2013,
+"cifra_negra":  94.65,
+"fillKey": "(93,94.7]" 
+},
+"BCS": {
+ "state_code": 3,
+"name": "BCS",
+"state_name": "Baja California Sur",
+"year":   2013,
+"cifra_negra":  86.39,
+"fillKey": "[85.2,93]" 
+},
+"CAM": {
+ "state_code": 4,
+"name": "CAM",
+"state_name": "Campeche",
+"year":   2013,
+"cifra_negra":  99.35,
+"fillKey": "(97,99.5]" 
+},
+"COA": {
+ "state_code": 5,
+"name": "COA",
+"state_name": "Coahuila de Zaragoza",
+"year":   2013,
+"cifra_negra":  93.33,
+"fillKey": "(93,94.7]" 
+},
+"COL": {
+ "state_code": 6,
+"name": "COL",
+"state_name": "Colima",
+"year":   2013,
+"cifra_negra":  93.97,
+"fillKey": "(93,94.7]" 
+},
+"CHIS": {
+ "state_code": 7,
+"name": "CHIS",
+"state_name": "Chiapas",
+"year":   2013,
+"cifra_negra":  97.67,
+"fillKey": "(97,99.5]" 
+},
+"CHIH": {
+ "state_code": 8,
+"name": "CHIH",
+"state_name": "Chihuahua",
+"year":   2013,
+"cifra_negra":  94.69,
+"fillKey": "(94.7,95.8]" 
+},
+"DF": {
+ "state_code": 9,
+"name": "DF",
+"state_name": "Distrito Federal",
+"year":   2013,
+"cifra_negra":  96.16,
+"fillKey": "(95.8,97]" 
+},
+"DUR": {
+ "state_code": 10,
+"name": "DUR",
+"state_name": "Durango",
+"year":   2013,
+"cifra_negra":  93.15,
+"fillKey": "(93,94.7]" 
+},
+"GTO": {
+ "state_code": 11,
+"name": "GTO",
+"state_name": "Guanajuato",
+"year":   2013,
+"cifra_negra":  95.89,
+"fillKey": "(95.8,97]" 
+},
+"GRO": {
+ "state_code": 12,
+"name": "GRO",
+"state_name": "Guerrero",
+"year":   2013,
+"cifra_negra":  96.83,
+"fillKey": "(95.8,97]" 
+},
+"HGO": {
+ "state_code": 13,
+"name": "HGO",
+"state_name": "Hidalgo",
+"year":   2013,
+"cifra_negra":  94.81,
+"fillKey": "(94.7,95.8]" 
+},
+"JAL": {
+ "state_code": 14,
+"name": "JAL",
+"state_name": "Jalisco",
+"year":   2013,
+"cifra_negra":  97.23,
+"fillKey": "(97,99.5]" 
+},
+"MEX": {
+ "state_code": 15,
+"name": "MEX",
+"state_name": "Estado de M?xico",
+"year":   2013,
+"cifra_negra":  98.22,
+"fillKey": "(97,99.5]" 
+},
+"MICH": {
+ "state_code": 16,
+"name": "MICH",
+"state_name": "Michoac?n de Ocampo",
+"year":   2013,
+"cifra_negra":  97.09,
+"fillKey": "(97,99.5]" 
+},
+"MOR": {
+ "state_code": 17,
+"name": "MOR",
+"state_name": "Morelos",
+"year":   2013,
+"cifra_negra":  92.79,
+"fillKey": "[85.2,93]" 
+},
+"NAY": {
+ "state_code": 18,
+"name": "NAY",
+"state_name": "Nayarit",
+"year":   2013,
+"cifra_negra":   97.6,
+"fillKey": "(97,99.5]" 
+},
+"NL": {
+ "state_code": 19,
+"name": "NL",
+"state_name": "Nuevo Le?n",
+"year":   2013,
+"cifra_negra":  97.29,
+"fillKey": "(97,99.5]" 
+},
+"OAX": {
+ "state_code": 20,
+"name": "OAX",
+"state_name": "Oaxaca",
+"year":   2013,
+"cifra_negra":  94.56,
+"fillKey": "(93,94.7]" 
+},
+"PUE": {
+ "state_code": 21,
+"name": "PUE",
+"state_name": "Puebla",
+"year":   2013,
+"cifra_negra":  95.78,
+"fillKey": "(94.7,95.8]" 
+},
+"QR": {
+ "state_code": 22,
+"name": "QR",
+"state_name": "Quer?taro",
+"year":   2013,
+"cifra_negra":  94.92,
+"fillKey": "(94.7,95.8]" 
+},
+"QROO": {
+ "state_code": 23,
+"name": "QROO",
+"state_name": "Quintana Roo",
+"year":   2013,
+"cifra_negra":  93.36,
+"fillKey": "(93,94.7]" 
+},
+"SLP": {
+ "state_code": 24,
+"name": "SLP",
+"state_name": "San Luis Potos?",
+"year":   2013,
+"cifra_negra":  98.13,
+"fillKey": "(97,99.5]" 
+},
+"SIN": {
+ "state_code": 25,
+"name": "SIN",
+"state_name": "Sinaloa",
+"year":   2013,
+"cifra_negra":  96.21,
+"fillKey": "(95.8,97]" 
+},
+"SON": {
+ "state_code": 26,
+"name": "SON",
+"state_name": "Sonora",
+"year":   2013,
+"cifra_negra":  96.15,
+"fillKey": "(95.8,97]" 
+},
+"TAB": {
+ "state_code": 27,
+"name": "TAB",
+"state_name": "Tabasco",
+"year":   2013,
+"cifra_negra":  91.78,
+"fillKey": "[85.2,93]" 
+},
+"TAM": {
+ "state_code": 28,
+"name": "TAM",
+"state_name": "Tamaulipas",
+"year":   2013,
+"cifra_negra":  94.57,
+"fillKey": "(93,94.7]" 
+},
+"TLA": {
+ "state_code": 29,
+"name": "TLA",
+"state_name": "Tlaxcala",
+"year":   2013,
+"cifra_negra":   97.6,
+"fillKey": "(97,99.5]" 
+},
+"VER": {
+ "state_code": 30,
+"name": "VER",
+"state_name": "Veracruz de Ignacio de la Llave",
+"year":   2013,
+"cifra_negra":  96.77,
+"fillKey": "(95.8,97]" 
+},
+"YUC": {
+ "state_code": 31,
+"name": "YUC",
+"state_name": "Yucat?n",
+"year":   2013,
+"cifra_negra":  90.96,
+"fillKey": "[85.2,93]" 
+},
+"ZAC": {
+ "state_code": 32,
+"name": "ZAC",
+"state_name": "Zacatecas",
+"year":   2013,
+"cifra_negra":  96.58,
+"fillKey": "(95.8,97]" 
 } 
 } 
 } 
