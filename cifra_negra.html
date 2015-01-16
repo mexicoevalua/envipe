@@ -18,7 +18,7 @@
       height: 400px;
     }  
     .container { margin-top: 20px; }
- .datamaps-legend dt{font-weight: normal; }
+    .datamaps-legend dt{font-weight: normal; }
     </style>
     
   </head>
@@ -31,7 +31,7 @@
                    <button ng-repeat="value in years" ng-click='updateYear(value)'
                    class="btn btn-default" type="button" 
                    ng-model="value" btn-radio="value">
-    {{value}}
+                  {{value}}
                    </button>
                    </div>
                    <div id='chart_1' class='rChart datamaps'></div>  
@@ -59,16 +59,13 @@
 "geographyConfig": {
  "dataUrl": "shapefiles/mx_states.json",
 "popupTemplate":  function(geography, data) { //this function should just return a string
-    return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
-    }  
+return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';  }  
 },
 "scope": "states",
 "labels": true,
 "bodyattrs": "ng-app ng-controller='rChartsCtrl'",
-"setProjection":  function( element, options ) {
-  
+"setProjection": function( element, options ) {
   var projection, path;
-  
   projection = d3.geo.mercator()
   .center([-90, 24])
   .scale(element.offsetWidth)
