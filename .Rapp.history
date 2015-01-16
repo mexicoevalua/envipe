@@ -1,0 +1,6 @@
+require(RColorBrewer)#
+display.brewer.pal(5,"PuRd")#
+display.brewer.pal(5,"Purples")#
+display.brewer.pal(5,"RdPu")#
+display.brewer.pal(5,"Reds")
+display.brewer.pal(5,"PuRd")

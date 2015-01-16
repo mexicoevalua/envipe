@@ -2,7 +2,7 @@
 <meta charset = 'utf-8'>
 <html>
   <head>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
     <script src='http://d3js.org/topojson.v1.min.js' type='text/javascript'></script>
     <script src='http://datamaps.github.io/scripts/datamaps.all.min.js' type='text/javascript'></script>
@@ -16,10 +16,9 @@
       margin-right: auto;
       width: 800px;
       height: 400px;
-    }
+    }  
     .container { margin-top: 20px; }
-    .datamaps-legend dt{font-weight: normal; }
-
+ .datamaps-legend dt{font-weight: normal; }
     </style>
     
   </head>
@@ -32,14 +31,14 @@
                    <button ng-repeat="value in years" ng-click='updateYear(value)'
                    class="btn btn-default" type="button" 
                    ng-model="value" btn-radio="value">
-                  {{value}}
+                    {{value}}
                    </button>
                    </div>
                    <div id='chart_1' class='rChart datamaps'></div>  
                    </div>
                    <script>
                    function rChartsCtrl($scope){
-                   $scope.years = [2010, 2011, 2012]
+                   $scope.years = [2010, 2011, 2012, 2014]
                    $scope.year = $scope.years[0]
                    $scope.updateYear = function(x){
                    $scope.year = x
@@ -81,11 +80,11 @@
   return {path: path, projection: projection};
   } ,
 "fills": {
- "[12620,19451]": "#FFFFB2",
-"(19451,21576]": "#FECC5C",
-"(21576,24753]": "#FD8D3C",
-"(24753,28861]": "#F03B20",
-"(28861,41048]": "#BD0026",
+ "[12620,19543]": "#FFFFB2",
+"(19543,21925]": "#FECC5C",
+"(21925,24772]": "#FD8D3C",
+"(24772,27702]": "#F03B20",
+"(27702,47778]": "#BD0026",
 "defaultFill": "#BD0026" 
 },
 "data": {
@@ -95,7 +94,7 @@
 "state_name": "Aguascalientes",
 "year":   2010,
 "prevalencia": "36,387",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "BC": {
  "state_code": 2,
@@ -103,7 +102,7 @@
 "state_name": "Baja California",
 "year":   2010,
 "prevalencia": "30,753",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "BCS": {
  "state_code": 3,
@@ -111,7 +110,7 @@
 "state_name": "Baja California Sur",
 "year":   2010,
 "prevalencia": "23,328",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "CAM": {
  "state_code": 4,
@@ -119,7 +118,7 @@
 "state_name": "Campeche",
 "year":   2010,
 "prevalencia": "17,321",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "COA": {
  "state_code": 5,
@@ -127,7 +126,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2010,
 "prevalencia": "25,250",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "COL": {
  "state_code": 6,
@@ -135,7 +134,7 @@
 "state_name": "Colima",
 "year":   2010,
 "prevalencia": "17,138",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "CHIS": {
  "state_code": 7,
@@ -143,7 +142,7 @@
 "state_name": "Chiapas",
 "year":   2010,
 "prevalencia": "12,856",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "CHIH": {
  "state_code": 8,
@@ -151,7 +150,7 @@
 "state_name": "Chihuahua",
 "year":   2010,
 "prevalencia": "34,826",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DF": {
  "state_code": 9,
@@ -159,7 +158,7 @@
 "state_name": "Distrito Federal",
 "year":   2010,
 "prevalencia": "32,495",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DUR": {
  "state_code": 10,
@@ -167,7 +166,7 @@
 "state_name": "Durango",
 "year":   2010,
 "prevalencia": "20,598",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "GTO": {
  "state_code": 11,
@@ -175,7 +174,7 @@
 "state_name": "Guanajuato",
 "year":   2010,
 "prevalencia": "20,890",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "GRO": {
  "state_code": 12,
@@ -183,7 +182,7 @@
 "state_name": "Guerrero",
 "year":   2010,
 "prevalencia": "20,172",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "HGO": {
  "state_code": 13,
@@ -191,7 +190,7 @@
 "state_name": "Hidalgo",
 "year":   2010,
 "prevalencia": "20,699",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "JAL": {
  "state_code": 14,
@@ -199,23 +198,23 @@
 "state_name": "Jalisco",
 "year":   2010,
 "prevalencia": "24,452",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de Mü¾Œƒ¤¼ü¾Ž–„¼xico",
+"state_name": "Estado de M??????xico",
 "year":   2010,
 "prevalencia": "27,908",
-"fillKey": "(24753,28861]" 
+"fillKey": "(27702,47778]" 
 },
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoacü¾Œƒ¤¼ü¾™ƒ ¼n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2010,
 "prevalencia": "14,931",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "MOR": {
  "state_code": 17,
@@ -223,7 +222,7 @@
 "state_name": "Morelos",
 "year":   2010,
 "prevalencia": "21,925",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "NAY": {
  "state_code": 18,
@@ -231,15 +230,15 @@
 "state_name": "Nayarit",
 "year":   2010,
 "prevalencia": "23,224",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Leü¾Œƒ¤¼_n",
+"state_name": "Nuevo Le??????n",
 "year":   2010,
 "prevalencia": "27,310",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "OAX": {
  "state_code": 20,
@@ -247,7 +246,7 @@
 "state_name": "Oaxaca",
 "year":   2010,
 "prevalencia": "16,262",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "PUE": {
  "state_code": 21,
@@ -255,15 +254,15 @@
 "state_name": "Puebla",
 "year":   2010,
 "prevalencia": "21,707",
-"fillKey": "(21576,24753]" 
+"fillKey": "(19543,21925]" 
 },
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Querü¾Œƒ¤¼ü¾Ž–„¼taro",
+"state_name": "Quer??????taro",
 "year":   2010,
 "prevalencia": "19,675",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "QROO": {
  "state_code": 23,
@@ -271,15 +270,15 @@
 "state_name": "Quintana Roo",
 "year":   2010,
 "prevalencia": "28,740",
-"fillKey": "(24753,28861]" 
+"fillKey": "(27702,47778]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosü¾Œƒ¤¼_",
+"state_name": "San Luis Potos??????",
 "year":   2010,
 "prevalencia": "22,636",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "SIN": {
  "state_code": 25,
@@ -287,7 +286,7 @@
 "state_name": "Sinaloa",
 "year":   2010,
 "prevalencia": "26,373",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "SON": {
  "state_code": 26,
@@ -295,7 +294,7 @@
 "state_name": "Sonora",
 "year":   2010,
 "prevalencia": "29,285",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "TAB": {
  "state_code": 27,
@@ -303,7 +302,7 @@
 "state_name": "Tabasco",
 "year":   2010,
 "prevalencia": "25,074",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "TAM": {
  "state_code": 28,
@@ -311,7 +310,7 @@
 "state_name": "Tamaulipas",
 "year":   2010,
 "prevalencia": "22,647",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "TLA": {
  "state_code": 29,
@@ -319,7 +318,7 @@
 "state_name": "Tlaxcala",
 "year":   2010,
 "prevalencia": "20,721",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "VER": {
  "state_code": 30,
@@ -327,15 +326,15 @@
 "state_name": "Veracruz de Ignacio de la Llave",
 "year":   2010,
 "prevalencia": "16,437",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatü¾Œƒ¤¼ü¾™ƒ ¼n",
+"state_name": "Yucat??????n",
 "year":   2010,
 "prevalencia": "17,826",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -343,7 +342,7 @@
 "state_name": "Zacatecas",
 "year":   2010,
 "prevalencia": "22,747",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 } 
 },
 "legend": true,
@@ -356,7 +355,7 @@
 "state_name": "Aguascalientes",
 "year":   2010,
 "prevalencia": "36,387",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "BC": {
  "state_code": 2,
@@ -364,7 +363,7 @@
 "state_name": "Baja California",
 "year":   2010,
 "prevalencia": "30,753",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "BCS": {
  "state_code": 3,
@@ -372,7 +371,7 @@
 "state_name": "Baja California Sur",
 "year":   2010,
 "prevalencia": "23,328",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "CAM": {
  "state_code": 4,
@@ -380,7 +379,7 @@
 "state_name": "Campeche",
 "year":   2010,
 "prevalencia": "17,321",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "COA": {
  "state_code": 5,
@@ -388,7 +387,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2010,
 "prevalencia": "25,250",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "COL": {
  "state_code": 6,
@@ -396,7 +395,7 @@
 "state_name": "Colima",
 "year":   2010,
 "prevalencia": "17,138",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "CHIS": {
  "state_code": 7,
@@ -404,7 +403,7 @@
 "state_name": "Chiapas",
 "year":   2010,
 "prevalencia": "12,856",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "CHIH": {
  "state_code": 8,
@@ -412,7 +411,7 @@
 "state_name": "Chihuahua",
 "year":   2010,
 "prevalencia": "34,826",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DF": {
  "state_code": 9,
@@ -420,7 +419,7 @@
 "state_name": "Distrito Federal",
 "year":   2010,
 "prevalencia": "32,495",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DUR": {
  "state_code": 10,
@@ -428,7 +427,7 @@
 "state_name": "Durango",
 "year":   2010,
 "prevalencia": "20,598",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "GTO": {
  "state_code": 11,
@@ -436,7 +435,7 @@
 "state_name": "Guanajuato",
 "year":   2010,
 "prevalencia": "20,890",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "GRO": {
  "state_code": 12,
@@ -444,7 +443,7 @@
 "state_name": "Guerrero",
 "year":   2010,
 "prevalencia": "20,172",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "HGO": {
  "state_code": 13,
@@ -452,7 +451,7 @@
 "state_name": "Hidalgo",
 "year":   2010,
 "prevalencia": "20,699",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "JAL": {
  "state_code": 14,
@@ -460,23 +459,23 @@
 "state_name": "Jalisco",
 "year":   2010,
 "prevalencia": "24,452",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de Mü¾Œƒ¤¼ü¾Ž–„¼xico",
+"state_name": "Estado de M??????xico",
 "year":   2010,
 "prevalencia": "27,908",
-"fillKey": "(24753,28861]" 
+"fillKey": "(27702,47778]" 
 },
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoacü¾Œƒ¤¼ü¾™ƒ ¼n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2010,
 "prevalencia": "14,931",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "MOR": {
  "state_code": 17,
@@ -484,7 +483,7 @@
 "state_name": "Morelos",
 "year":   2010,
 "prevalencia": "21,925",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "NAY": {
  "state_code": 18,
@@ -492,15 +491,15 @@
 "state_name": "Nayarit",
 "year":   2010,
 "prevalencia": "23,224",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Leü¾Œƒ¤¼_n",
+"state_name": "Nuevo Le??????n",
 "year":   2010,
 "prevalencia": "27,310",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "OAX": {
  "state_code": 20,
@@ -508,7 +507,7 @@
 "state_name": "Oaxaca",
 "year":   2010,
 "prevalencia": "16,262",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "PUE": {
  "state_code": 21,
@@ -516,15 +515,15 @@
 "state_name": "Puebla",
 "year":   2010,
 "prevalencia": "21,707",
-"fillKey": "(21576,24753]" 
+"fillKey": "(19543,21925]" 
 },
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Querü¾Œƒ¤¼ü¾Ž–„¼taro",
+"state_name": "Quer??????taro",
 "year":   2010,
 "prevalencia": "19,675",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "QROO": {
  "state_code": 23,
@@ -532,15 +531,15 @@
 "state_name": "Quintana Roo",
 "year":   2010,
 "prevalencia": "28,740",
-"fillKey": "(24753,28861]" 
+"fillKey": "(27702,47778]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosü¾Œƒ¤¼_",
+"state_name": "San Luis Potos??????",
 "year":   2010,
 "prevalencia": "22,636",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "SIN": {
  "state_code": 25,
@@ -548,7 +547,7 @@
 "state_name": "Sinaloa",
 "year":   2010,
 "prevalencia": "26,373",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "SON": {
  "state_code": 26,
@@ -556,7 +555,7 @@
 "state_name": "Sonora",
 "year":   2010,
 "prevalencia": "29,285",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "TAB": {
  "state_code": 27,
@@ -564,7 +563,7 @@
 "state_name": "Tabasco",
 "year":   2010,
 "prevalencia": "25,074",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "TAM": {
  "state_code": 28,
@@ -572,7 +571,7 @@
 "state_name": "Tamaulipas",
 "year":   2010,
 "prevalencia": "22,647",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "TLA": {
  "state_code": 29,
@@ -580,7 +579,7 @@
 "state_name": "Tlaxcala",
 "year":   2010,
 "prevalencia": "20,721",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "VER": {
  "state_code": 30,
@@ -588,15 +587,15 @@
 "state_name": "Veracruz de Ignacio de la Llave",
 "year":   2010,
 "prevalencia": "16,437",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatü¾Œƒ¤¼ü¾™ƒ ¼n",
+"state_name": "Yucat??????n",
 "year":   2010,
 "prevalencia": "17,826",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -604,7 +603,7 @@
 "state_name": "Zacatecas",
 "year":   2010,
 "prevalencia": "22,747",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 } 
 },
 "2011": {
@@ -614,7 +613,7 @@
 "state_name": "Aguascalientes",
 "year":   2011,
 "prevalencia": "25,665",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "BC": {
  "state_code": 2,
@@ -622,7 +621,7 @@
 "state_name": "Baja California",
 "year":   2011,
 "prevalencia": "30,588",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "BCS": {
  "state_code": 3,
@@ -630,7 +629,7 @@
 "state_name": "Baja California Sur",
 "year":   2011,
 "prevalencia": "27,019",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "CAM": {
  "state_code": 4,
@@ -638,7 +637,7 @@
 "state_name": "Campeche",
 "year":   2011,
 "prevalencia": "17,280",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "COA": {
  "state_code": 5,
@@ -646,7 +645,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2011,
 "prevalencia": "22,945",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "COL": {
  "state_code": 6,
@@ -654,7 +653,7 @@
 "state_name": "Colima",
 "year":   2011,
 "prevalencia": "22,193",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "CHIS": {
  "state_code": 7,
@@ -662,7 +661,7 @@
 "state_name": "Chiapas",
 "year":   2011,
 "prevalencia": "12,621",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "CHIH": {
  "state_code": 8,
@@ -670,7 +669,7 @@
 "state_name": "Chihuahua",
 "year":   2011,
 "prevalencia": "30,455",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DF": {
  "state_code": 9,
@@ -678,7 +677,7 @@
 "state_name": "Distrito Federal",
 "year":   2011,
 "prevalencia": "33,256",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DUR": {
  "state_code": 10,
@@ -686,7 +685,7 @@
 "state_name": "Durango",
 "year":   2011,
 "prevalencia": "20,111",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "GTO": {
  "state_code": 11,
@@ -694,7 +693,7 @@
 "state_name": "Guanajuato",
 "year":   2011,
 "prevalencia": "24,753",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "GRO": {
  "state_code": 12,
@@ -702,7 +701,7 @@
 "state_name": "Guerrero",
 "year":   2011,
 "prevalencia": "20,497",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "HGO": {
  "state_code": 13,
@@ -710,7 +709,7 @@
 "state_name": "Hidalgo",
 "year":   2011,
 "prevalencia": "21,821",
-"fillKey": "(21576,24753]" 
+"fillKey": "(19543,21925]" 
 },
 "JAL": {
  "state_code": 14,
@@ -718,23 +717,23 @@
 "state_name": "Jalisco",
 "year":   2011,
 "prevalencia": "26,181",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de Mü¾Œƒ¤¼ü¾Ž–„¼xico",
+"state_name": "Estado de M??????xico",
 "year":   2011,
 "prevalencia": "31,018",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoacü¾Œƒ¤¼ü¾™ƒ ¼n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2011,
 "prevalencia": "21,040",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "MOR": {
  "state_code": 17,
@@ -742,7 +741,7 @@
 "state_name": "Morelos",
 "year":   2011,
 "prevalencia": "22,982",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "NAY": {
  "state_code": 18,
@@ -750,15 +749,15 @@
 "state_name": "Nayarit",
 "year":   2011,
 "prevalencia": "20,877",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Leü¾Œƒ¤¼_n",
+"state_name": "Nuevo Le??????n",
 "year":   2011,
 "prevalencia": "24,991",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "OAX": {
  "state_code": 20,
@@ -766,7 +765,7 @@
 "state_name": "Oaxaca",
 "year":   2011,
 "prevalencia": "18,129",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "PUE": {
  "state_code": 21,
@@ -774,15 +773,15 @@
 "state_name": "Puebla",
 "year":   2011,
 "prevalencia": "23,053",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Querü¾Œƒ¤¼ü¾Ž–„¼taro",
+"state_name": "Quer??????taro",
 "year":   2011,
 "prevalencia": "21,576",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "QROO": {
  "state_code": 23,
@@ -790,15 +789,15 @@
 "state_name": "Quintana Roo",
 "year":   2011,
 "prevalencia": "26,829",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosü¾Œƒ¤¼_",
+"state_name": "San Luis Potos??????",
 "year":   2011,
 "prevalencia": "24,847",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "SIN": {
  "state_code": 25,
@@ -806,7 +805,7 @@
 "state_name": "Sinaloa",
 "year":   2011,
 "prevalencia": "23,948",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "SON": {
  "state_code": 26,
@@ -814,7 +813,7 @@
 "state_name": "Sonora",
 "year":   2011,
 "prevalencia": "29,974",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "TAB": {
  "state_code": 27,
@@ -822,7 +821,7 @@
 "state_name": "Tabasco",
 "year":   2011,
 "prevalencia": "19,612",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "TAM": {
  "state_code": 28,
@@ -830,7 +829,7 @@
 "state_name": "Tamaulipas",
 "year":   2011,
 "prevalencia": "18,126",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "TLA": {
  "state_code": 29,
@@ -838,7 +837,7 @@
 "state_name": "Tlaxcala",
 "year":   2011,
 "prevalencia": "18,362",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "VER": {
  "state_code": 30,
@@ -846,15 +845,15 @@
 "state_name": "Veracruz de Ignacio de la Llave",
 "year":   2011,
 "prevalencia": "17,820",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatü¾Œƒ¤¼ü¾™ƒ ¼n",
+"state_name": "Yucat??????n",
 "year":   2011,
 "prevalencia": "14,832",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -862,7 +861,7 @@
 "state_name": "Zacatecas",
 "year":   2011,
 "prevalencia": "21,146",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 } 
 },
 "2012": {
@@ -872,7 +871,7 @@
 "state_name": "Aguascalientes",
 "year":   2012,
 "prevalencia": "27,225",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "BC": {
  "state_code": 2,
@@ -880,7 +879,7 @@
 "state_name": "Baja California",
 "year":   2012,
 "prevalencia": "36,579",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "BCS": {
  "state_code": 3,
@@ -888,7 +887,7 @@
 "state_name": "Baja California Sur",
 "year":   2012,
 "prevalencia": "27,043",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "CAM": {
  "state_code": 4,
@@ -896,7 +895,7 @@
 "state_name": "Campeche",
 "year":   2012,
 "prevalencia": "21,991",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "COA": {
  "state_code": 5,
@@ -904,7 +903,7 @@
 "state_name": "Coahuila de Zaragoza",
 "year":   2012,
 "prevalencia": "19,540",
-"fillKey": "(19451,21576]" 
+"fillKey": "[12620,19543]" 
 },
 "COL": {
  "state_code": 6,
@@ -912,7 +911,7 @@
 "state_name": "Colima",
 "year":   2012,
 "prevalencia": "24,908",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "CHIS": {
  "state_code": 7,
@@ -920,7 +919,7 @@
 "state_name": "Chiapas",
 "year":   2012,
 "prevalencia": "12,620",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "CHIH": {
  "state_code": 8,
@@ -928,7 +927,7 @@
 "state_name": "Chihuahua",
 "year":   2012,
 "prevalencia": "32,567",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DF": {
  "state_code": 9,
@@ -936,7 +935,7 @@
 "state_name": "Distrito Federal",
 "year":   2012,
 "prevalencia": "31,675",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "DUR": {
  "state_code": 10,
@@ -944,7 +943,7 @@
 "state_name": "Durango",
 "year":   2012,
 "prevalencia": "24,232",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "GTO": {
  "state_code": 11,
@@ -952,7 +951,7 @@
 "state_name": "Guanajuato",
 "year":   2012,
 "prevalencia": "28,861",
-"fillKey": "(24753,28861]" 
+"fillKey": "(27702,47778]" 
 },
 "GRO": {
  "state_code": 12,
@@ -960,7 +959,7 @@
 "state_name": "Guerrero",
 "year":   2012,
 "prevalencia": "26,789",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "HGO": {
  "state_code": 13,
@@ -968,7 +967,7 @@
 "state_name": "Hidalgo",
 "year":   2012,
 "prevalencia": "19,451",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "JAL": {
  "state_code": 14,
@@ -976,23 +975,23 @@
 "state_name": "Jalisco",
 "year":   2012,
 "prevalencia": "31,861",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de Mü¾Œƒ¤¼ü¾Ž–„¼xico",
+"state_name": "Estado de M??????xico",
 "year":   2012,
 "prevalencia": "41,048",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoacü¾Œƒ¤¼ü¾™ƒ ¼n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2012,
 "prevalencia": "20,354",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "MOR": {
  "state_code": 17,
@@ -1000,7 +999,7 @@
 "state_name": "Morelos",
 "year":   2012,
 "prevalencia": "29,310",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "NAY": {
  "state_code": 18,
@@ -1008,15 +1007,15 @@
 "state_name": "Nayarit",
 "year":   2012,
 "prevalencia": "19,169",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Leü¾Œƒ¤¼_n",
+"state_name": "Nuevo Le??????n",
 "year":   2012,
 "prevalencia": "31,316",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "OAX": {
  "state_code": 20,
@@ -1024,7 +1023,7 @@
 "state_name": "Oaxaca",
 "year":   2012,
 "prevalencia": "14,335",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "PUE": {
  "state_code": 21,
@@ -1032,15 +1031,15 @@
 "state_name": "Puebla",
 "year":   2012,
 "prevalencia": "22,733",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Querü¾Œƒ¤¼ü¾Ž–„¼taro",
+"state_name": "Quer??????taro",
 "year":   2012,
 "prevalencia": "24,002",
-"fillKey": "(21576,24753]" 
+"fillKey": "(21925,24772]" 
 },
 "QROO": {
  "state_code": 23,
@@ -1048,15 +1047,15 @@
 "state_name": "Quintana Roo",
 "year":   2012,
 "prevalencia": "29,703",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potosü¾Œƒ¤¼_",
+"state_name": "San Luis Potos??????",
 "year":   2012,
 "prevalencia": "26,810",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "SIN": {
  "state_code": 25,
@@ -1064,7 +1063,7 @@
 "state_name": "Sinaloa",
 "year":   2012,
 "prevalencia": "26,141",
-"fillKey": "(24753,28861]" 
+"fillKey": "(24772,27702]" 
 },
 "SON": {
  "state_code": 26,
@@ -1072,7 +1071,7 @@
 "state_name": "Sonora",
 "year":   2012,
 "prevalencia": "29,131",
-"fillKey": "(28861,41048]" 
+"fillKey": "(27702,47778]" 
 },
 "TAB": {
  "state_code": 27,
@@ -1080,7 +1079,7 @@
 "state_name": "Tabasco",
 "year":   2012,
 "prevalencia": "20,837",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "TAM": {
  "state_code": 28,
@@ -1088,7 +1087,7 @@
 "state_name": "Tamaulipas",
 "year":   2012,
 "prevalencia": "21,407",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "TLA": {
  "state_code": 29,
@@ -1096,7 +1095,7 @@
 "state_name": "Tlaxcala",
 "year":   2012,
 "prevalencia": "18,150",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "VER": {
  "state_code": 30,
@@ -1104,15 +1103,15 @@
 "state_name": "Veracruz de Ignacio de la Llave",
 "year":   2012,
 "prevalencia": "18,733",
-"fillKey": "[12620,19451]" 
+"fillKey": "[12620,19543]" 
 },
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucatü¾Œƒ¤¼ü¾™ƒ ¼n",
+"state_name": "Yucat??????n",
 "year":   2012,
 "prevalencia": "19,548",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
 },
 "ZAC": {
  "state_code": 32,
@@ -1120,7 +1119,265 @@
 "state_name": "Zacatecas",
 "year":   2012,
 "prevalencia": "20,337",
-"fillKey": "(19451,21576]" 
+"fillKey": "(19543,21925]" 
+} 
+},
+"2013": {
+ "AGS": {
+ "state_code": 1,
+"name": "AGS",
+"state_name": "Aguascalientes",
+"year":   2013,
+"prevalencia": "26,784",
+"fillKey": "(24772,27702]" 
+},
+"BC": {
+ "state_code": 2,
+"name": "BC",
+"state_name": "Baja California",
+"year":   2013,
+"prevalencia": "39,507",
+"fillKey": "(27702,47778]" 
+},
+"BCS": {
+ "state_code": 3,
+"name": "BCS",
+"state_name": "Baja California Sur",
+"year":   2013,
+"prevalencia": "24,746",
+"fillKey": "(21925,24772]" 
+},
+"CAM": {
+ "state_code": 4,
+"name": "CAM",
+"state_name": "Campeche",
+"year":   2013,
+"prevalencia": "23,710",
+"fillKey": "(21925,24772]" 
+},
+"COA": {
+ "state_code": 5,
+"name": "COA",
+"state_name": "Coahuila de Zaragoza",
+"year":   2013,
+"prevalencia": "24,040",
+"fillKey": "(21925,24772]" 
+},
+"COL": {
+ "state_code": 6,
+"name": "COL",
+"state_name": "Colima",
+"year":   2013,
+"prevalencia": "22,059",
+"fillKey": "(21925,24772]" 
+},
+"CHIS": {
+ "state_code": 7,
+"name": "CHIS",
+"state_name": "Chiapas",
+"year":   2013,
+"prevalencia": "16,445",
+"fillKey": "[12620,19543]" 
+},
+"CHIH": {
+ "state_code": 8,
+"name": "CHIH",
+"state_name": "Chihuahua",
+"year":   2013,
+"prevalencia": "27,344",
+"fillKey": "(24772,27702]" 
+},
+"DF": {
+ "state_code": 9,
+"name": "DF",
+"state_name": "Distrito Federal",
+"year":   2013,
+"prevalencia": "33,068",
+"fillKey": "(27702,47778]" 
+},
+"DUR": {
+ "state_code": 10,
+"name": "DUR",
+"state_name": "Durango",
+"year":   2013,
+"prevalencia": "22,157",
+"fillKey": "(21925,24772]" 
+},
+"GTO": {
+ "state_code": 11,
+"name": "GTO",
+"state_name": "Guanajuato",
+"year":   2013,
+"prevalencia": "27,293",
+"fillKey": "(24772,27702]" 
+},
+"GRO": {
+ "state_code": 12,
+"name": "GRO",
+"state_name": "Guerrero",
+"year":   2013,
+"prevalencia": "26,002",
+"fillKey": "(24772,27702]" 
+},
+"HGO": {
+ "state_code": 13,
+"name": "HGO",
+"state_name": "Hidalgo",
+"year":   2013,
+"prevalencia": "19,890",
+"fillKey": "(19543,21925]" 
+},
+"JAL": {
+ "state_code": 14,
+"name": "JAL",
+"state_name": "Jalisco",
+"year":   2013,
+"prevalencia": "33,029",
+"fillKey": "(27702,47778]" 
+},
+"MEX": {
+ "state_code": 15,
+"name": "MEX",
+"state_name": "Estado de M??????xico",
+"year":   2013,
+"prevalencia": "47,778",
+"fillKey": "(27702,47778]" 
+},
+"MICH": {
+ "state_code": 16,
+"name": "MICH",
+"state_name": "Michoac??????n de Ocampo",
+"year":   2013,
+"prevalencia": "20,002",
+"fillKey": "(19543,21925]" 
+},
+"MOR": {
+ "state_code": 17,
+"name": "MOR",
+"state_name": "Morelos",
+"year":   2013,
+"prevalencia": "26,146",
+"fillKey": "(24772,27702]" 
+},
+"NAY": {
+ "state_code": 18,
+"name": "NAY",
+"state_name": "Nayarit",
+"year":   2013,
+"prevalencia": "18,535",
+"fillKey": "[12620,19543]" 
+},
+"NL": {
+ "state_code": 19,
+"name": "NL",
+"state_name": "Nuevo Le??????n",
+"year":   2013,
+"prevalencia": "26,516",
+"fillKey": "(24772,27702]" 
+},
+"OAX": {
+ "state_code": 20,
+"name": "OAX",
+"state_name": "Oaxaca",
+"year":   2013,
+"prevalencia": "16,291",
+"fillKey": "[12620,19543]" 
+},
+"PUE": {
+ "state_code": 21,
+"name": "PUE",
+"state_name": "Puebla",
+"year":   2013,
+"prevalencia": "23,585",
+"fillKey": "(21925,24772]" 
+},
+"QR": {
+ "state_code": 22,
+"name": "QR",
+"state_name": "Quer??????taro",
+"year":   2013,
+"prevalencia": "23,554",
+"fillKey": "(21925,24772]" 
+},
+"QROO": {
+ "state_code": 23,
+"name": "QROO",
+"state_name": "Quintana Roo",
+"year":   2013,
+"prevalencia": "26,519",
+"fillKey": "(24772,27702]" 
+},
+"SLP": {
+ "state_code": 24,
+"name": "SLP",
+"state_name": "San Luis Potos??????",
+"year":   2013,
+"prevalencia": "25,710",
+"fillKey": "(24772,27702]" 
+},
+"SIN": {
+ "state_code": 25,
+"name": "SIN",
+"state_name": "Sinaloa",
+"year":   2013,
+"prevalencia": "23,588",
+"fillKey": "(21925,24772]" 
+},
+"SON": {
+ "state_code": 26,
+"name": "SON",
+"state_name": "Sonora",
+"year":   2013,
+"prevalencia": "27,395",
+"fillKey": "(24772,27702]" 
+},
+"TAB": {
+ "state_code": 27,
+"name": "TAB",
+"state_name": "Tabasco",
+"year":   2013,
+"prevalencia": "22,725",
+"fillKey": "(21925,24772]" 
+},
+"TAM": {
+ "state_code": 28,
+"name": "TAM",
+"state_name": "Tamaulipas",
+"year":   2013,
+"prevalencia": "17,570",
+"fillKey": "[12620,19543]" 
+},
+"TLA": {
+ "state_code": 29,
+"name": "TLA",
+"state_name": "Tlaxcala",
+"year":   2013,
+"prevalencia": "21,924",
+"fillKey": "(19543,21925]" 
+},
+"VER": {
+ "state_code": 30,
+"name": "VER",
+"state_name": "Veracruz de Ignacio de la Llave",
+"year":   2013,
+"prevalencia": "20,246",
+"fillKey": "(19543,21925]" 
+},
+"YUC": {
+ "state_code": 31,
+"name": "YUC",
+"state_name": "Yucat??????n",
+"year":   2013,
+"prevalencia": "18,438",
+"fillKey": "[12620,19543]" 
+},
+"ZAC": {
+ "state_code": 32,
+"name": "ZAC",
+"state_name": "Zacatecas",
+"year":   2013,
+"prevalencia": "20,863",
+"fillKey": "(19543,21925]" 
 } 
 } 
 } 

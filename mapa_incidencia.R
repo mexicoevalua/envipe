@@ -12,13 +12,13 @@ require(devtools)
 
 # Carga datos
 #####
-envipe  <- read.csv("data/envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
+envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
 
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
-# Subset prevalencia delictiva
+# Subset incidencia delictiva
 names(envipe)
-inc  <- envipe[,c(1:3,5,8,11)] 
+inc  <- envipe[,c(1:3,5,8,11,14)] 
 names(inc)
 # Melt dataframe
 minc  <- melt(data=inc,id.vars=c(1:3))
@@ -125,7 +125,7 @@ d1$setTemplate(chartDiv = "
       </div>
       <script>
         function rChartsCtrl($scope){
-          $scope.years = [2010, 2011, 2012]
+          $scope.years = [2010, 2011, 2012, 2013]
           $scope.year = $scope.years[0]
           $scope.updateYear = function(x){
             $scope.year = x

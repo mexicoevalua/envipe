@@ -1,4 +1,4 @@
-# Mapa interactivo prevalencia delictiva ENVIPE 2011, 2012 y 2013
+# Mapa interactivo prevalencia delictiva ENVIPE 2011, 2012 , 2013 y 2014
 # Basado en: http://rmaps.github.io/blog/posts/animated-choropleths/index.html y
 # http://bl.ocks.org/diegovalle/8967565
 
@@ -15,13 +15,13 @@ install_github(repo='rMaps',username='ramnathv',ref="master")
 
 # Carga datos
 #####
-envipe  <- read.csv("data/envipe2011-2013.csv", encoding= "utf8",stringsAsFactors=F)
+envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
 
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset prevalencia delictiva
 names(envipe)
-prev  <- envipe[,c(1:4,7,10)] 
+prev  <- envipe[,c(1:4,7,10,13)] 
 names(prev)
 # Melt dataframe
 mprev  <- melt(data=prev,id.vars=c(1:3))
@@ -117,7 +117,7 @@ d1$setTemplate(chartDiv = "
                </div>
                <script>
                function rChartsCtrl($scope){
-               $scope.years = [2010, 2011, 2012]
+               $scope.years = [2010, 2011, 2012, 2014]
                $scope.year = $scope.years[0]
                $scope.updateYear = function(x){
                $scope.year = x
