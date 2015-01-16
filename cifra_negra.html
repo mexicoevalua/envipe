@@ -18,7 +18,7 @@
       height: 400px;
     }  
     .container { margin-top: 20px; }
-    .datamaps-legend dt{font-weight: normal; }
+.datamaps-legend dt{font-weight: normal; }
     </style>
     
   </head>
@@ -31,7 +31,7 @@
                    <button ng-repeat="value in years" ng-click='updateYear(value)'
                    class="btn btn-default" type="button" 
                    ng-model="value" btn-radio="value">
-                  {{value}}
+          {{value}}
                    </button>
                    </div>
                    <div id='chart_1' class='rChart datamaps'></div>  
@@ -59,19 +59,24 @@
 "geographyConfig": {
  "dataUrl": "shapefiles/mx_states.json",
 "popupTemplate":  function(geography, data) { //this function should just return a string
-return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';  }  
+    return '<div class=hoverinfo><strong>' + geography.properties.name +  ': ' + data.cifra_negra +'</strong></div>';
+    }   
 },
 "scope": "states",
 "labels": true,
 "bodyattrs": "ng-app ng-controller='rChartsCtrl'",
-"setProjection": function( element, options ) {
+"setProjection":  function( element, options ) {
+  
   var projection, path;
+  
   projection = d3.geo.mercator()
   .center([-90, 24])
   .scale(element.offsetWidth)
   .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+  
   path = d3.geo.path()
   .projection( projection );
+  
   return {path: path, projection: projection};
   } ,
 "fills": {
@@ -198,7 +203,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de M?xico",
+"state_name": "Estado de M??????xico",
 "year":   2010,
 "cifra_negra":   94.8,
 "fillKey": "(94.7,95.8]" 
@@ -206,7 +211,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoac?n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2010,
 "cifra_negra":   95.1,
 "fillKey": "(94.7,95.8]" 
@@ -230,7 +235,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Le?n",
+"state_name": "Nuevo Le??????n",
 "year":   2010,
 "cifra_negra":  97.02,
 "fillKey": "(97,99.5]" 
@@ -254,7 +259,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Quer?taro",
+"state_name": "Quer??????taro",
 "year":   2010,
 "cifra_negra":  94.72,
 "fillKey": "(94.7,95.8]" 
@@ -270,7 +275,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potos?",
+"state_name": "San Luis Potos??????",
 "year":   2010,
 "cifra_negra":  94.56,
 "fillKey": "(93,94.7]" 
@@ -326,7 +331,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucat?n",
+"state_name": "Yucat??????n",
 "year":   2010,
 "cifra_negra":  92.89,
 "fillKey": "[85.2,93]" 
@@ -459,7 +464,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de M?xico",
+"state_name": "Estado de M??????xico",
 "year":   2010,
 "cifra_negra":   94.8,
 "fillKey": "(94.7,95.8]" 
@@ -467,7 +472,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoac?n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2010,
 "cifra_negra":   95.1,
 "fillKey": "(94.7,95.8]" 
@@ -491,7 +496,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Le?n",
+"state_name": "Nuevo Le??????n",
 "year":   2010,
 "cifra_negra":  97.02,
 "fillKey": "(97,99.5]" 
@@ -515,7 +520,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Quer?taro",
+"state_name": "Quer??????taro",
 "year":   2010,
 "cifra_negra":  94.72,
 "fillKey": "(94.7,95.8]" 
@@ -531,7 +536,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potos?",
+"state_name": "San Luis Potos??????",
 "year":   2010,
 "cifra_negra":  94.56,
 "fillKey": "(93,94.7]" 
@@ -587,7 +592,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucat?n",
+"state_name": "Yucat??????n",
 "year":   2010,
 "cifra_negra":  92.89,
 "fillKey": "[85.2,93]" 
@@ -717,7 +722,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de M?xico",
+"state_name": "Estado de M??????xico",
 "year":   2011,
 "cifra_negra":  95.81,
 "fillKey": "(94.7,95.8]" 
@@ -725,7 +730,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoac?n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2011,
 "cifra_negra":  96.99,
 "fillKey": "(97,99.5]" 
@@ -749,7 +754,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Le?n",
+"state_name": "Nuevo Le??????n",
 "year":   2011,
 "cifra_negra":  95.92,
 "fillKey": "(95.8,97]" 
@@ -773,7 +778,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Quer?taro",
+"state_name": "Quer??????taro",
 "year":   2011,
 "cifra_negra":  94.77,
 "fillKey": "(94.7,95.8]" 
@@ -789,7 +794,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potos?",
+"state_name": "San Luis Potos??????",
 "year":   2011,
 "cifra_negra":  95.88,
 "fillKey": "(95.8,97]" 
@@ -845,7 +850,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucat?n",
+"state_name": "Yucat??????n",
 "year":   2011,
 "cifra_negra":  85.18,
 "fillKey": "[85.2,93]" 
@@ -975,7 +980,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de M?xico",
+"state_name": "Estado de M??????xico",
 "year":   2012,
 "cifra_negra":  97.08,
 "fillKey": "(97,99.5]" 
@@ -983,7 +988,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoac?n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2012,
 "cifra_negra":  96.98,
 "fillKey": "(95.8,97]" 
@@ -1007,7 +1012,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Le?n",
+"state_name": "Nuevo Le??????n",
 "year":   2012,
 "cifra_negra":  97.67,
 "fillKey": "(97,99.5]" 
@@ -1031,7 +1036,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Quer?taro",
+"state_name": "Quer??????taro",
 "year":   2012,
 "cifra_negra":  95.04,
 "fillKey": "(94.7,95.8]" 
@@ -1047,7 +1052,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potos?",
+"state_name": "San Luis Potos??????",
 "year":   2012,
 "cifra_negra":  96.66,
 "fillKey": "(95.8,97]" 
@@ -1103,7 +1108,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucat?n",
+"state_name": "Yucat??????n",
 "year":   2012,
 "cifra_negra":  90.07,
 "fillKey": "[85.2,93]" 
@@ -1233,7 +1238,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MEX": {
  "state_code": 15,
 "name": "MEX",
-"state_name": "Estado de M?xico",
+"state_name": "Estado de M??????xico",
 "year":   2013,
 "cifra_negra":  98.22,
 "fillKey": "(97,99.5]" 
@@ -1241,7 +1246,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "MICH": {
  "state_code": 16,
 "name": "MICH",
-"state_name": "Michoac?n de Ocampo",
+"state_name": "Michoac??????n de Ocampo",
 "year":   2013,
 "cifra_negra":  97.09,
 "fillKey": "(97,99.5]" 
@@ -1265,7 +1270,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "NL": {
  "state_code": 19,
 "name": "NL",
-"state_name": "Nuevo Le?n",
+"state_name": "Nuevo Le??????n",
 "year":   2013,
 "cifra_negra":  97.29,
 "fillKey": "(97,99.5]" 
@@ -1289,7 +1294,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "QR": {
  "state_code": 22,
 "name": "QR",
-"state_name": "Quer?taro",
+"state_name": "Quer??????taro",
 "year":   2013,
 "cifra_negra":  94.92,
 "fillKey": "(94.7,95.8]" 
@@ -1305,7 +1310,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "SLP": {
  "state_code": 24,
 "name": "SLP",
-"state_name": "San Luis Potos?",
+"state_name": "San Luis Potos??????",
 "year":   2013,
 "cifra_negra":  98.13,
 "fillKey": "(97,99.5]" 
@@ -1361,7 +1366,7 @@ return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong><
 "YUC": {
  "state_code": 31,
 "name": "YUC",
-"state_name": "Yucat?n",
+"state_name": "Yucat??????n",
 "year":   2013,
 "cifra_negra":  90.96,
 "fillKey": "[85.2,93]" 

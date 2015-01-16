@@ -138,7 +138,7 @@ d1$set(
   geographyConfig = list(
     dataUrl = "shapefiles/mx_states.json",
     popupTemplate =  "#! function(geography, data) { //this function should just return a string
-    return '<div class=hoverinfo><strong>' + geography.properties.name + '</strong></div>';
+    return '<div class=hoverinfo><strong>' + geography.properties.name +  ': ' + data.cifra_negra +'</strong></div>';
     }  !#"
   ),
   dom = 'chart_1',
