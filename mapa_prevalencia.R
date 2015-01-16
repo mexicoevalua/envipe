@@ -117,7 +117,7 @@ d1$setTemplate(chartDiv = "
                </div>
                <script>
                function rChartsCtrl($scope){
-               $scope.years = [2010, 2011, 2012, 2014]
+               $scope.years = [2010, 2011, 2012, 2013]
                $scope.year = $scope.years[0]
                $scope.updateYear = function(x){
                $scope.year = x
