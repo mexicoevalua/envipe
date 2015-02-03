@@ -25,6 +25,8 @@ install_github('ramnathv/rMaps')
 #####
 envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
 
+
+
 # Mantener solo datos para los estados
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset prevalencia delictiva
@@ -33,8 +35,12 @@ inc  <- envipe[,c(1:3,5,8,11,14)]
 names(inc)
 
 # Agregar datos de averiguaciones previas
-ave  <-  read.csv("data/fuero-comun-estados.csv", as.is=T)
+#Cambiar ruta del direcotorio en dodne se encuentra el Micrositio
+ave  <-  read.csv("~/Micrositio/incidenciaDelictiva/data/fuero-comun-estados.csv", as.is=T)
 head(ave)
+
+
+
 
 # Mantener solo el año de interes para las averiguaciones previas en 2010, 2011 y 2012
 table(ave$year)
