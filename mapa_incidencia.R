@@ -6,6 +6,9 @@
 #####
 require(reshape2)
 require(devtools)
+require(plyr)
+require(rCharts)
+require(rMaps)
 
 #install_github(repo='rCharts',username='ramnathv',ref="dev")
 #install_github(repo='rMaps',username='ramnathv',ref="master")
@@ -13,7 +16,6 @@ require(devtools)
 # Carga datos
 #####
 envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
-
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset incidencia delictiva
@@ -32,17 +34,6 @@ minc$year  <- gsub("inc","", minc$year)
 minc$year  <- as.numeric(minc$year)
 table(minc$year) # 32 obs 
 head(minc); tail(minc)
-
-# Mapas interactivos:
-#======
-# Instalar librerías en Mac
-
-#require(reshape2)
-#require(devtools)
-#install_github(repo='rCharts',username='ramnathv',ref="dev")
-#install_github(repo='rMaps',username='ramnathv',ref="master")
-#require(rCharts)
-#require(rMaps)
 
 # Esta parte del script produce un mapa interactivo .html
 # Requiere un servidor local, en la terminal de Mac usar: python -m SimpleHTTPServer 8888

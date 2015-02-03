@@ -6,6 +6,9 @@ getwd()
 #####
 require(reshape2)
 require(devtools)
+require(plyr)
+require(rCharts)
+require(rMaps)
 
 #install_github(repo='rCharts',username='ramnathv',ref="dev")
 #install_github(repo='rMaps',username='ramnathv',ref="master")
@@ -13,14 +16,12 @@ require(devtools)
 # Carga datos
 #####
 envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
-head(envipe) ; tail(envipe)
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset prevalencia delictiva
 names(envipe)
 ins  <- envipe[,c(1:3,6,9,12,15)] 
 names(ins)
-head(ins)
 # Melt dataframe
 mins  <- melt(data=ins,id.vars=c(1:3))
 head(mins); tail(mins)

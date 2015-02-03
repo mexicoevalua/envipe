@@ -16,7 +16,6 @@ install_github(repo='rMaps',username='ramnathv',ref="master")
 # Carga datos
 #####
 envipe  <- read.csv("data/envipe2011-2014.csv", encoding= "utf8",stringsAsFactors=F)
-
 # Subset states
 envipe  <- subset(envipe, envipe$codigo != 0)
 # Subset prevalencia delictiva
